@@ -1,0 +1,94 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Login Page Background */
+.login-page {
+    background: url('../images/login-bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Register Page Background */
+.register-page {
+    background: url('../images/register-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+.card {
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+    max-width: 900px; 
+    width: 90%;
+    background-color: white;
+}
+
+.btn-signup {
+    border-radius: 50px; /* Pill shape */
+    padding: 10px 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.email-icon { fill: #333; }
+
+.btn-login {
+    background-color: #b0b0b0;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #999;
+}
+
+/* Vertical line divider for desktop */
+.divider-vertical {
+    border-right: 1px solid #dee2e6;
+}
+
+/* Remove divider on mobile */
+@media (max-width: 768px) {
+    .divider-vertical {
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+}
+
+.icon-circle {
+    width: 50px; 
+    height: 50px;
+    background-color: #6c757d;
+    opacity: 0.25;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.toggle-password {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
