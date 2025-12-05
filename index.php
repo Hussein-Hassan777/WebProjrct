@@ -61,7 +61,7 @@
                             <p>Sign in to stay connected, track your activity, and manage your services quickly and
                                 securely.
                             </p>
-                            <button>log in</button>
+                            <button onclick="window.location.href='login.php'">log in</button>
                         </div>
                     </div>
                     <div class="carousel-item">
