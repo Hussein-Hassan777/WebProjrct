@@ -2,7 +2,8 @@
 include 'conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $full_name = $_POST['full_name'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = $_POST['password'];  // plain text
@@ -18,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         // Insert user into database
-        $sql = "INSERT INTO users (full_name, email, phone, password, role)
-                VALUES ('$full_name', '$email', '$phone', '$password', '$role')";
+        $sql = "INSERT INTO users (first_name, last_name, email, phone, password, role)
+                VALUES ('$first_name', '$last_name', '$email', '$phone', '$password', '$role')";
 
         if ($conn->query($sql) === TRUE) {
             header("Location: register.html?message=Success");
