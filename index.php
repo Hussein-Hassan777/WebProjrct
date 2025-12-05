@@ -61,11 +61,7 @@
                             <p>Sign in to stay connected, track your activity, and manage your services quickly and
                                 securely.
                             </p>
-<<<<<<< HEAD
-                            <button>log in</button>
-=======
                             <button onclick="window.location.href='login.php'">log in</button>
->>>>>>> 2590e67727481c4ed0386ff55e0fd0e2d6af9409
                         </div>
                     </div>
                     <div class="carousel-item">

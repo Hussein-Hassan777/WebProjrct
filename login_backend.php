@@ -2,7 +2,7 @@
 session_start();
 include 'conn.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
