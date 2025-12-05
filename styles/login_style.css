@@ -24,22 +24,32 @@ body {
     border-radius: 20px;
     border: none;
     overflow: hidden;
-    max-width: 900px; 
+    max-width: 900px;
     width: 90%;
     background-color: white;
 }
 
+.icon img {
+    height: 70px !important;
+    width: 70px !important;
+    border-radius: 50% !important;
+}
+
 .btn-signup {
-    border-radius: 50px; /* Pill shape */
+    border-radius: 50px;
+    /* Pill shape */
     padding: 10px 20px;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Space between icon and text */
+    gap: 10px;
+    /* Space between icon and text */
 }
 
-.email-icon { fill: #333; }
+.email-icon {
+    fill: #333;
+}
 
 .btn-login {
     background-color: #b0b0b0;
@@ -77,7 +87,7 @@ body {
 }
 
 .icon-circle {
-    width: 50px; 
+    width: 50px;
     height: 50px;
     background-color: #6c757d;
     opacity: 0.25;
