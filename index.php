@@ -96,8 +96,7 @@
         <section>
             <div class="row justify-content-around">
                 <div class="card col-lg-3 col-md-6 col-sm-1" style="width: 18rem;">
-                    <img src="images/cards/card1/00632a0a-7613-43f4-b882-85c530991a9d.avif" class="card-img-top"
-                        alt="...">
+                    <img src="images\cards\card1\img1.avif" class="card-img-top" alt="...">
                     <div class="card-body d-flex flex-column align-items-center">
                         <h4 class="card-title">Oversized Drop-Shoulder T-Shirt</h4>
                         <h5 class="card-text"><span>1074.00$</span></h5>
@@ -111,6 +110,7 @@
                 </div>
             </div>
         </section>
+
 
         <script src="scripts/all.min.js"></script>
         <script src="scripts/bootstrap.bundle.min.js"></script>
