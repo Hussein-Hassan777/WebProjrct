@@ -33,7 +33,7 @@
                         <a class="nav-link" href="#">Best Sells</a>
                     </li>
                 </ul>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#" onclick="window.location.href='mycart.php'">
                     <i class="fa-solid fa-cart-arrow-down"></i>
                     mycart
                 </a>
