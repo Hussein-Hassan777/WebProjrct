@@ -2,7 +2,7 @@
 session_start();
 include 'conn.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
@@ -18,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['role'] = $row['role'];
 
         if ($row['role'] === 'admin') {
-            header("Location: admin_dashboard.php");
+            header("Location: adminpage/dashbord_html.php");
         } else {
-            header("Location: home.php");
+            header("Location: index.php");
         }
         exit();
     } else {
         // Redirect back to login.html with a message
-        header("Location: login.html?message=InvalidCredentials");
+        header("Location: login.php?message=InvalidCredentials");
         exit();
     }
 }

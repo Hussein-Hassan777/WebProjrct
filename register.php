@@ -18,22 +18,30 @@
         <div id="message" style="margin-bottom:15px;"></div>
 
         <form action="register_backend.php" method="POST">
-            <div class="mb-3">
-                <label>Full name</label>
-                <input type="text" name="full_name" class="form-control" placeholder="Enter your Full name" required>
-            </div>
-            <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
-            </div>
-            <div class="mb-4">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
-            </div>
+           <div class="mb-3">
+            <label>First name</label>
+            <input type="text" name="first_name" class="form-control" placeholder="Enter your First name" required>
+        </div>
+         <div class="mb-3">
+            <label>Last name</label>
+            <input type="text" name="last_name" class="form-control" placeholder="Enter your Last name" required>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-4">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <div class="mb-4">
+            <label>Phone</label>
+            <input type="tel" name="phone" class="form-control" placeholder="Enter your phone number" required>
+        </div>
             <button type="submit" class="btn-signup btn-primary w-100">Sign up</button>
             <p class="text-center mt-3">
                 Already have an account?
-                <a href="login.html">Login</a>
+                <a href="login.php">Login</a>
             </p>
         </form>
     </div>
@@ -50,7 +58,7 @@
             if (msg === 'EmailAlreadyExists') {
                 messageDiv.innerHTML = '<div class="alert alert-danger text-center">This email is already registered!</div>';
             } else if (msg === 'Success') {
-                messageDiv.innerHTML = '<div class="alert alert-success text-center">Registration successful! You can now <a href="login.html">login</a>.</div>';
+                messageDiv.innerHTML = '<div class="alert alert-success text-center">Registration successful! You can now <a href="login.php">login</a>.</div>';
             } else if (msg === 'Error') {
                 messageDiv.innerHTML = '<div class="alert alert-danger text-center">Something went wrong. Please try again!</div>';
             }
