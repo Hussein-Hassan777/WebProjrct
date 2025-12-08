@@ -1,14 +1,6 @@
 <?php
-$servername = "localhost";   
-$username = "root";          
-$password = "";              
-$dbname = "ecommerce_db";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    $conn = mysqli_connect("127.0.0.1", "root", "", "ecommerce_db", 3307);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 ?>

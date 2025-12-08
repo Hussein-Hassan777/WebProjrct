@@ -41,7 +41,7 @@
             <button type="submit" class="btn-signup btn-primary w-100">Sign up</button>
             <p class="text-center mt-3">
                 Already have an account?
-                <a href="login.html">Login</a>
+                <a href="login.php">Login</a>
             </p>
         </form>
     </div>
@@ -58,7 +58,7 @@
             if (msg === 'EmailAlreadyExists') {
                 messageDiv.innerHTML = '<div class="alert alert-danger text-center">This email is already registered!</div>';
             } else if (msg === 'Success') {
-                messageDiv.innerHTML = '<div class="alert alert-success text-center">Registration successful! You can now <a href="login.html">login</a>.</div>';
+                messageDiv.innerHTML = '<div class="alert alert-success text-center">Registration successful! You can now <a href="login.php">login</a>.</div>';
             } else if (msg === 'Error') {
                 messageDiv.innerHTML = '<div class="alert alert-danger text-center">Something went wrong. Please try again!</div>';
             }

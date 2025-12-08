@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($check_result->num_rows > 0) {
         // Redirect back to HTML page with message
-        header("Location: register.html?message=EmailAlreadyExists");
+        header("Location: register.php?message=EmailAlreadyExists");
         exit();
     } else {
         // Insert user into database
@@ -23,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$first_name', '$last_name', '$email', '$phone', '$password', '$role')";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: register.html?message=Success");
+            header("Location: register.php?message=Success"); //
             exit();
         } else {
-            header("Location: register.html?message=Error");
+            header("Location: register.php?message=Error"); //
             exit();
         }
     }
