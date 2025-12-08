@@ -1,0 +1,36 @@
+body{
+    padding:40px ;
+}
+
+.card {
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.btn1{
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+}
+
+.btn1 button{
+    padding: 8px;
+    margin:15px;
+    border: solid 2px black;
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+}
+
+
+.wrap-buttons button,.wrap-buttons .btn-primary,form button{
+    width: 130px;
+}
+
+img{
+    width: 60px;
+    height: 50px;
+}
