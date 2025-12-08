@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Products</title>
-    <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="styles/adminStyle.css">
 </head>
 <body>
 

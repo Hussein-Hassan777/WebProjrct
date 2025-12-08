@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="dashbord.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link href="styles/dashbord.css" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid">
@@ -141,7 +141,7 @@
     </div>
 </div>
 
-    <script src="bootstrap.bundle.min.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
     <script>
         function showTab(tabId){
             document.querySelectorAll('.tab-content').forEach(tc=>tc.style.display='none');
