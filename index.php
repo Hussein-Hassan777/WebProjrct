@@ -27,11 +27,9 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Discount</a>
+                        <a class="nav-link" href="#">products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Best Sells</a>
-                    </li>
+                   
                 </ul>
                 <a class="nav-link" href="#" onclick="window.location.href='mycart.php'">
                     <i class="fa-solid fa-cart-arrow-down"></i>
