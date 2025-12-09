@@ -26,15 +26,37 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title><?= $product['name']; ?></title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/all.min.css">
+    <link rel="stylesheet" href="styles/home_style.css">
     <link rel="stylesheet" href="styles/info_style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <h1 class="logo">Brand</h1>
-        <ul class="nav-links">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="cart.php">My Cart</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/icons/nmt2ien6snbvvd91bedf19i52s.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">products</a>
+                    </li>
+                   
+                </ul>
+                <a class="nav-link" href="#" onclick="window.location.href='mycart.php'">
+                   
+                    mycart
+                </a>
+            </div>
+        </div>
     </nav>
 
     <div class="container">
