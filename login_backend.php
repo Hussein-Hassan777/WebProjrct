@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['role'] = $row['role'];
 
         if ($row['role'] === 'admin') {
-            header("Location: adminpage/dashbord_html.php");
+            header("Location:dashbord_html.php");
         } else {
             header("Location: index.php");
         }
