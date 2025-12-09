@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cart</title>
-
+    <link rel="shortcut icon" href="images/icons/nmt2ien6snbvvd91bedf19i52s.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="styles/mycart_style.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -39,7 +40,7 @@
         </div>
     </nav>
 
-     <div class="container py-5">
+    <div class="container py-5">
 
         <h2 class="text-center mb-4">MY CART</h2>
 
@@ -60,7 +61,7 @@
                             <button class="qty-btn">+</button>
                         </div>
 
-                       <button class="remove-btn">Remove</button>
+                        <button class="remove-btn">Remove</button>
                         <button class="make-info-btn">Make Info</button>
                     </div>
                 </div>
@@ -98,4 +99,5 @@
     </div>
 
 </body>
+
 </html>
