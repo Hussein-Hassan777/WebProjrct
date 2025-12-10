@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    height: 7000px;
+    position: relative;
+    padding-top: 70px;
+}
+
+body::selection {
+    color: #000;
+    background: #F6B1CE;
+}
+
+.navbar {
+    background-color: #1581BF !important;
+}
+
+.dropdown-menu {
+    background-color: #3DB6B1;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+a {
+    color: #fff !important;
+}
+
+a:hover {
+    color: #000 !important;
+}
+
+.carousel {
+    height: 70vh;
+}
+
+.carousel-item img {
+    height: 100%;
+}
+
+.arrow {
+    font-size: 40px;
+    color: #1581BF;
+}
+
+.carousel-caption {
+    background-color: #1581bf51;
+    height: 240px;
+    transition: ease 0.4s;
+    bottom: 8rem;
+    padding: 40px;
+}
+
+.carousel-caption p {
+    margin-bottom: 50px;
+}
+
+.carousel-caption:hover {
+    background-color: #1581bf8b;
+}
+
+.buttons {
+    margin-bottom: 100px;
+}
+
+.mybtn1,
+.buttons button,
+.modal-footer .infobtn,
+.modeltext .cardbtn,
+.contact .contactbutton,
+.form_order button {
+    border: none;
+    background-color: #3DB6B1;
+    height: 50px;
+    width: 200px;
+    color: #fff;
+    border-radius: 20px;
+    transition: ease 0.4s;
+}
+
+.buttons button,
+.modal-footer .infobtn,
+.modeltext .cardbtn,
+.form_order button {
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+
+.mybtn1:hover,
+.buttons button:hover,
+.modal-footer .infobtn:hover,
+.contact .contactbutton:hover,
+.form_order button:hover {
+    background-color: #F6B1CE;
+    border-radius: 50px;
+}
+
+.modeltext .cardbtn:hover {
+    background-color: crimson;
+    border-radius: 50px;
+}
+
+.carousel-indicators button {
+    height: 20px !important;
+    width: 20px !important;
+    border-radius: 50%;
+}
+
+/* offcanvas */
+
+.offcan-img {
+    height: 250px !important;
+    width: 200px !important;
+}
+
+.offcan-header {
+    color: crimson;
+}
+
+.offcan-img {
+    transition: ease 0.4s;
+}
+
+.offcan-img:hover {
+    transform: skew(-5deg);
+}
+
+/* Products */
+.text-header {
+    padding-bottom: 5px;
+    border-bottom: #F6B1CE solid 5px;
+    margin-bottom: 20px;
+}
+
+.stars {
+    margin-bottom: 10px;
+}
+
+.stars .star {
+    color: #3DB6B1;
+}
+
+.stars .star:hover {
+    color: #F6B1CE;
+    cursor: pointer;
+}
+
+
+
+.card img,
+.bestselling img {
+    transition: ease 0.4s;
+}
+
+.card img:hover,
+.bestselling img:hover {
+    transform: scale(1.05, 1.05);
+}
+
+/* model */
+
+.modal-body .carousel {
+    width: 50% !important;
+    height: 280px !important;
+}
+
+.carousel .carousel-inner {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.carousel .carousel-item {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.carousel-item img {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.modal-body .modeltext {
+    width: 50% !important;
+    text-align: center;
+}
+
+.contact {
+    height: 60vh;
+    background: url("../images/landscaps/img4.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    color: #1581BF;
+    padding: 30px 100px 0;
+    font-weight: bold;
+}
+
+.contact h3 {
+    border-bottom: #F6B1CE 5px solid;
+    margin-bottom: 20px;
+    padding-bottom: 2px;
+    font-size: 300%;
+}
+
+.contact .btncontact {
+    background-color: #3DB6B1;
+    border: none;
+}
+
+.mygroup {
+    margin-top: 100px !important;
+}
+
+.contact .btncontact {
+    background-color: #3DB6B1;
+    border-radius: 20px 0 0 20px;
+    padding: 10px 30px;
+    color: #fff;
+}
+
+.contact .btncontact:hover {
+    background-color: #F6B1CE;
+}
+
+/* Order */
+
+.order {
+    padding: 30px;
+}
+
+.order h2,
+.bestselling h2 {
+    color: #1581BF;
+    border-bottom: #F6B1CE 5px solid;
+    padding-bottom: 2px;
+}
+
+.form_order input,
+.form_order textarea {
+    border: #66696b61 1px solid;
+    outline: none;
+}
+
+.form_order .row {
+    margin: 20px 0;
+}
+
+/* bestselling */
+
+.bestselling img:hover {
+    rotate: -3deg;
+}
