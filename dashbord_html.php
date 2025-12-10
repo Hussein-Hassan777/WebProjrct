@@ -10,11 +10,12 @@
 </head>
 <body>
 <div class="container-fluid">
+    
     <div class="row">
         <main class="col-md-12 ms-sm-auto px-4 py-4">
 
             <!-- ===== CARDS ===== -->
-            <div class="col-sm-12 mb-2">
+            <div class="col-sm-6 mb-2">
                 <div class="card " style="background-color: #1581BF;">
                     <div class="card-body">
                         <h5 class="card-title">Products</h5>
@@ -23,7 +24,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-12 mb-2">
+            <div class="col-sm-6 mb-2">
                 <div class="card " style="background-color: #3DB6B1;">
                     <div class="card-body">
                         <h5 class="card-title">Users</h5>
@@ -34,7 +35,7 @@
 
 
             <div class="btn1">
-                <a href="admin_html.php"><button type="button">add products</button></a>
+                <a href="admin_html.php"><button type="button">ADD PRODECTS</button></a>
             </div>
 
             <div class="mb-3">
@@ -113,7 +114,7 @@
                     <tbody>
                     <?php foreach($users as $u): ?>
                         <tr>
-                            
+
                             <td><?= $u['first_name'] ?></td>
                             <td><?= $u['last_name'] ?></td>
                             <td><?= $u['phone'] ?></td>
@@ -132,6 +133,7 @@
 </div>
 
     <script src="scripts/bootstrap.bundle.min.js"></script>
+    
     <script>
         function showTab(tabId){
             document.querySelectorAll('.tab-content').forEach(tc=>tc.style.display='none');
