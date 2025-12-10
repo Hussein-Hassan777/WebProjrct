@@ -56,7 +56,6 @@
                             <th>Price</th>
                             <th>Brand</th>
                             <th>Category</th>
-                            <th>Image</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
