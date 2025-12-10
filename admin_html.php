@@ -25,13 +25,19 @@
     <form action="php_prod.php" method="post" enctype="multipart/form-data">
 
         <label for="id_prod">Product ID</label>
-        <input type="number" name="id_prod" id="id_prod" value="<?= htmlspecialchars($id) ?>" required>
+        <input type="text" name="id_prod" id="id_prod" value="<?= htmlspecialchars($id) ?>" required>
 
         <label for="name_prod">Name</label>
         <input type="text" name="name_prod" id="name_prod" value="<?= htmlspecialchars($name) ?>" required>
 
-        <label for="image">Image</label>
-        <input type="file" name="image" id="image">
+        <label for="image">Image1 1</label>
+        <input type="file" name="image1" id="image">
+
+        <label for="image">Image 2</label>
+        <input type="file" name="image2" id="image">
+
+        <label for="image">Image 3</label>
+        <input type="file" name="image3" id="image">
 
 
         <label for="desc">Description</label>

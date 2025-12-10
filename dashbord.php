@@ -1,9 +1,5 @@
+<?php include "conn.php"; ?>
 <?php
-
-$conn = mysqli_connect("127.0.0.1", "root", "", "ecommerce_db", 3307);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 $products = [];
 $result = mysqli_query($conn, "SELECT * FROM products");
