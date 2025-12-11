@@ -107,7 +107,7 @@
                             <th>Last Name</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>Actions</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,9 +118,7 @@
                             <td><?= $u['last_name'] ?></td>
                             <td><?= $u['phone'] ?></td>
                             <td><?= $u['email'] ?></td>
-                            <td>
-
-                            </td>
+                            <td><?= $u['role'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
