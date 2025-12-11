@@ -56,7 +56,7 @@ include("index_backend.php");
                 </ul>
 
                 <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                    aria-controls="offcanvasExample" onclick="window.location.href='myfile.php'">
+                    aria-controls="offcanvasExample" onclick="window.location.href='mycart.php'">
                     <div class="text-white">
                         <i class="fa-solid fa-cart-arrow-down"></i>
                         <span>cart</span>
