@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Dec 09, 2025 at 07:32 PM
+-- Generation Time: Dec 11, 2025 at 07:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `web_project_db`
+-- Database: `ecommerce_db`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id_P`, `image_1`, `image_2`, `image_3`) VALUES
-('P1', 'images/cards/card1/img1.avif', 'images/cards/card1/img1.avif', 'images/cards/card1/img1.avif'),
+('P1', 'images/cards/card1/img1.avif', 'images/cards/card1/img2.avif', 'images/cards/card1/img3.avif'),
 ('P2', 'images/cards/card2/img1.avif', 'images/cards/card2/img2.avif', 'images/cards/card2/img3.avif'),
 ('P3', 'images/cards/card3/img1.avif', 'images/cards/card3/img2.avif', 'images/cards/card3/img3.avif'),
 ('P4', 'images/cards/card4/img1.avif', 'images/cards/card4/img2.avif', 'images/cards/card4/img3.avif'),
@@ -49,7 +49,7 @@ INSERT INTO `images` (`id_P`, `image_1`, `image_2`, `image_3`) VALUES
 ('P8', 'images/cards/card8/img1.avif', 'images/cards/card8/img2.avif', 'images/cards/card8/img3.avif'),
 ('P9', 'images/cards/card9/img1.avif', 'images/cards/card9/img2.avif', 'images/cards/card9/img3.avif'),
 ('P10', 'images/cards/card10/img1.avif', 'images/cards/card10/img2.avif', 'images/cards/card10/img3.avif'),
-('P12', 'images/cards/card12/img1.avif', 'images/cards/card12/img1.avif', 'images/cards/card12/img1.avif'),
+('P12', 'images/cards/card12/img1.avif', 'images/cards/card12/img2.avif', 'images/cards/card12/img3.avif'),
 ('P11', 'images/cards/card11/img1.avif', 'images/cards/card11/img2.avif', 'images/cards/card11/img3.avif'),
 ('P13', 'images/cards/card13/img1.avif', 'images/cards/card13/img2.avif', 'images/cards/card13/img3.avif'),
 ('P14', 'images/cards/card14/img1.avif', 'images/cards/card14/img2.avif', 'images/cards/card14/img3.avif'),
@@ -62,6 +62,25 @@ INSERT INTO `images` (`id_P`, `image_1`, `image_2`, `image_3`) VALUES
 ('P21', 'images/cards/card21/img1.avif', 'images/cards/card21/img2.avif', 'images/cards/card21/img3.avif'),
 ('P22', 'images/cards/card22/img1.avif', 'images/cards/card22/img2.avif', 'images/cards/card22/img3.avif'),
 ('P23', 'images/cards/card23/img1.avif', 'images/cards/card23/img2.avif', 'images/cards/card23/img3.avif');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `offers`
+--
+
+CREATE TABLE `offers` (
+  `id_P` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `offers`
+--
+
+INSERT INTO `offers` (`id_P`) VALUES
+('P21'),
+('P22'),
+('P23');
 
 -- --------------------------------------------------------
 
@@ -153,6 +172,64 @@ INSERT INTO `products` (`id_P`, `name`, `describtion`, `price`, `brand`, `catego
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `special_order`
+--
+
+CREATE TABLE `special_order` (
+  `name` varchar(50) NOT NULL,
+  `email` varchar(70) NOT NULL,
+  `phone_number` varchar(11) NOT NULL,
+  `message_title` varchar(30) NOT NULL,
+  `order_details` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `special_order`
+--
+
+INSERT INTO `special_order` (`name`, `email`, `phone_number`, `message_title`, `order_details`) VALUES
+('Hussein', 'hussein@gmail.com', '01174628661', 'blue T-shirt', 'I want like a blue cotton T-shirt for summer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `the_most_rating`
+--
+
+CREATE TABLE `the_most_rating` (
+  `id_P` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `the_most_rating`
+--
+
+INSERT INTO `the_most_rating` (`id_P`) VALUES
+('P16'),
+('P17'),
+('P18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `the_most_selling`
+--
+
+CREATE TABLE `the_most_selling` (
+  `id_P` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `the_most_selling`
+--
+
+INSERT INTO `the_most_selling` (`id_P`) VALUES
+('P19'),
+('P20');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -187,6 +264,12 @@ ALTER TABLE `images`
   ADD KEY `id-P` (`id_P`);
 
 --
+-- Indexes for table `offers`
+--
+ALTER TABLE `offers`
+  ADD KEY `id_P` (`id_P`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -208,6 +291,18 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id_P`);
 
 --
+-- Indexes for table `the_most_rating`
+--
+ALTER TABLE `the_most_rating`
+  ADD KEY `id_P` (`id_P`);
+
+--
+-- Indexes for table `the_most_selling`
+--
+ALTER TABLE `the_most_selling`
+  ADD KEY `id_P` (`id_P`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -226,6 +321,12 @@ ALTER TABLE `images`
   ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id_P`) REFERENCES `products` (`id_P`);
 
 --
+-- Constraints for table `offers`
+--
+ALTER TABLE `offers`
+  ADD CONSTRAINT `offers_ibfk_1` FOREIGN KEY (`id_P`) REFERENCES `products` (`id_P`);
+
+--
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
@@ -237,6 +338,18 @@ ALTER TABLE `orders`
 ALTER TABLE `order_lists`
   ADD CONSTRAINT `order_lists_ibfk_1` FOREIGN KEY (`id_O`) REFERENCES `orders` (`id_O`),
   ADD CONSTRAINT `order_lists_ibfk_2` FOREIGN KEY (`id_P`) REFERENCES `products` (`id_P`);
+
+--
+-- Constraints for table `the_most_rating`
+--
+ALTER TABLE `the_most_rating`
+  ADD CONSTRAINT `the_most_rating_ibfk_1` FOREIGN KEY (`id_P`) REFERENCES `products` (`id_P`);
+
+--
+-- Constraints for table `the_most_selling`
+--
+ALTER TABLE `the_most_selling`
+  ADD CONSTRAINT `the_most_selling_ibfk_1` FOREIGN KEY (`id_P`) REFERENCES `products` (`id_P`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
