@@ -1,5 +1,5 @@
 <?php
-include("myfile_backend.php");
+include("index_backend.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +15,6 @@ include("myfile_backend.php");
 </head>
 
 <body>
-    <?php
-    $mying = mysqli_fetch_array($result)[3];
-    ?>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -36,7 +33,7 @@ include("myfile_backend.php");
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">about us</a>
+                        <a class="nav-link" href="#about">about us</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -53,7 +50,7 @@ include("myfile_backend.php");
                                     onclick="window.location.href='login.php'">login</a></li>
                         </ul>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">categories</a>
+                        <a class="nav-link" href="#bestselling">bestselling</a>
                     </li>
                     </li>
                 </ul>
@@ -84,7 +81,8 @@ include("myfile_backend.php");
                 <div class="carousel-caption d-none d-md-block rounded-5">
                     <h2>Your Welfare Matters</h2>
                     <p>The Best Marketing Website...Priced in Your Local Currency</p>
-                    <button class="mybtn1" onclick="window.location.href='login.php'">Login Now!</button>
+                    <button class="mybtn1" onclick="window.location.href='login.php'">Login!</button>
+                    <button class="mybtn1" onclick="window.location.href='register.php'">register Now!</button>
                 </div>
             </div>
             <div class="carousel-item">
@@ -127,10 +125,35 @@ include("myfile_backend.php");
         </div>
         <div>
             <div class="container">
-                <div class="d-flex justify-content-evenly flex-wrap">
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="<?php echo $mying ?>" class="card-img-top p-2" alt="..." height="230"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="d-flex justify-content-evenly flex-wrap gap-4">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample0" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[0]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[0]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[0]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample0"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample0"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -139,12 +162,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[0]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[0]['price'] ?>EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="<?php echo $mying ?>" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample1" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[1]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[1]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[1]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -153,12 +205,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[1]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[1]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample2" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[2]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[2]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[2]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -167,12 +248,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[2]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[2]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample3" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[3]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[3]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[3]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -181,12 +291,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[3]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[3]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample4" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[4]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[4]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[4]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample4"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample4"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -195,12 +334,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[4]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[4]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample5" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[5]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[5]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[5]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample5"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample5"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -209,12 +377,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[5]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[5]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample6" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[6]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[6]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[6]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample6"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample6"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -223,12 +420,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[6]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[6]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample7" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[7]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[7]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[7]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample7"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample7"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -237,12 +463,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[7]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[7]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample8" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[8]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[8]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[8]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample8"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample8"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -251,12 +506,41 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[8]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[8]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
-                    <div class="card m-2" style="width: 12rem;">
-                        <img src="" class="card-img-top p-2" alt="..." height="230">
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample9" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[9]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[9]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[9]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample9"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample9"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <div class="stars">
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
@@ -265,15 +549,233 @@ include("myfile_backend.php");
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <span class="star"><i class="fa-solid fa-star"></i></span>
                             </div>
-                            <h5 class="card-title bgBlue">Sumsung A20</h5>
-                            <p class="card-text fw-bold fs-4">70$</p>
+                            <h5 class="card-title bgBlue"><?php echo $rows[9]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[9]['price'] ?> EGP</p>
                         </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample10" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[10]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[10]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[10]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample10"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample10"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="stars">
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                            </div>
+                            <h5 class="card-title bgBlue"><?php echo $rows[10]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[10]['price'] ?> EGP</p>
+                        </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
+                    </div>
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample11" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[11]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[11]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[11]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample11"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample11"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="stars">
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                            </div>
+                            <h5 class="card-title bgBlue"><?php echo $rows[11]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[11]['price'] ?> EGP</p>
+                        </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
+                    </div>
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample12" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[12]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[12]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[12]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample12"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample12"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="stars">
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                            </div>
+                            <h5 class="card-title bgBlue"><?php echo $rows[12]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[12]['price'] ?> EGP</p>
+                        </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
+                    </div>
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample13" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[13]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[13]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[13]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample13"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample13"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="stars">
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                            </div>
+                            <h5 class="card-title bgBlue"><?php echo $rows[13]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[13]['price'] ?> EGP</p>
+                        </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
+                    </div>
+
+                    <div class="card m-2" style="width: 15rem;">
+                        <div id="carouselExample14" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo $rows[14]['image_1'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[14]['image_2'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo $rows[14]['image_3'] ?>" class="d-block img-thumbnail"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample14"
+                                data-bs-slide="prev">
+                                <i class="fa-solid fa-angles-left card_arrows"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample14"
+                                data-bs-slide="next">
+                                <i class="fa-solid fa-angles-right card_arrows"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="stars">
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                                <span class="star"><i class="fa-solid fa-star"></i></span>
+                            </div>
+                            <h5 class="card-title bgBlue"><?php echo $rows[11]['name'] ?></h5>
+                            <p class="card-text fw-bold fs-4"><?php echo $rows[11]['price'] ?> EGP</p>
+                        </div>
+                        <button class="cardbtn cardbtninfo">more info</button>
+                        <button class="cardbtn cardbtncart">add to cart<i
+                                class="fa-solid fa-cart-arrow-down"></i></button>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
-
     <!-- contact -->
     <section id="contactus" class="contact">
         <div class="d-flex justify-content-center">
@@ -283,99 +785,12 @@ include("myfile_backend.php");
             our services, our team is here to help. Just send us a message and we'll get back to you as soon as
             possible.</p>
         <div class="input-group mygroup w-50 m-auto">
+
             <button type="button" id="button-addon1" class="btncontact">Join us</button>
             <input type="text" class="form-control inputcontact" placeholder="Type our Email"
                 aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
     </section>
-
-    <!-- offconvas -->
-    <!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Order</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body text-center">
-
-        <div class="text-center">
-            <img src="images/products/31dBV4g+CwL.AC_SX250.jpg" class="img-thumbnail offcan-img p-2" alt=""
-                data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <p>Shirt Polo</p>
-            <b>60$</b>
-        </div>
-        <hr>
-        <div class="text-center">
-            <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" class="img-thumbnail offcan-img p-2" alt="">
-            <p>Shirt Polo</p>
-            <b>120$</b>
-        </div>
-        <hr>
-        <div class="text-center">
-            <img src="images/products/31qMhWXKcML.AC_SX250.jpg" class="img-thumbnail offcan-img p-2" alt="">
-            <p>Shirt Polo</p>
-            <b>70$</b>
-        </div>
-        <hr>
-        <div class="text-center">
-            <img src="images/products/31rACt0uWKL.AC_SX250.jpg" class="img-thumbnail offcan-img p-2" alt="">
-            <p>Shirt Polo</p>
-            <b>90$</b>
-        </div>
-        <hr>
-        <h5 class="offcan-header">the total: 180$</h5>
-        <button class="mybtn1">Paying</button>
-    </div>
-</div> -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Product info</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex justify-content-between align-items-center">
-                    <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="images/products/41IIZy5ZLNL.AC_SX250.jpg" class="d-block img-thumbnail"
-                                    alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/products/41i8tGsm1BL.AC_SX250.jpg" class="d-block img-thumbnail"
-                                    alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/products/41j9BM7NjGL.AC_SX250.jpg" class="d-block img-thumbnail"
-                                    alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="modeltext">
-                        <h4>SAMSUNG Galaxy Z Fold6</h4>
-                        <p>SAMSUNG Galaxy Z Fold6, AI Phone, 12GB RAM, 512GB Storage, Silver Shadow, Android Smartphone,
-                            50MP Camera, Big Screen, Multi-tasking, S Pen, Long Battery Life, UAE Version</p>
-                        <p>price: <b style="color: crimson;">70$</b></p>
-                        <button class="cardbtn">add to cart <i class="fa-solid fa-cart-arrow-down"></i></button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="infobtn" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Order -->
     <section id="order" class="order  border rounded m-5">
@@ -383,29 +798,32 @@ include("myfile_backend.php");
             <div class="d-flex justify-content-center">
                 <h2>Special Order</h2>
             </div>
-            <form action="" class="form_order">
+            <form method="post" class="form_order">
                 <div class="row">
                     <div class="col">
                         <label for="name">Name</label>
                         <br>
-                        <input type="text" id="name" name="name" placeholder="type your name" class="w-100">
+                        <input type="text" id="name" name="name" placeholder="type your name" class="w-100" required>
                     </div>
                     <div class="col">
                         <label for="email">Email</label>
                         <br>
-                        <input type="email" id="email" name="email" placeholder="type your email" class="w-100">
+                        <input type="email" id="email" name="email" placeholder="type your email" class="w-100"
+                            required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label for="phone">Phone Number</label>
                         <br>
-                        <input type="text" id="phone" name="phone" placeholder="type your phone number" class="w-100">
+                        <input type="text" id="phone" name="phone" placeholder="type your phone number" class="w-100"
+                            required>
                     </div>
                     <div class="col">
                         <label for="title">message title</label>
                         <br>
-                        <input type="text" id="title" name="title" placeholder="type the message title" class="w-100">
+                        <input type="text" id="title" name="title" placeholder="type the message title" class="w-100"
+                            required>
                     </div>
                 </div>
                 <div class="row">
@@ -413,168 +831,120 @@ include("myfile_backend.php");
                         <label for="details">the order details</label>
                         <br>
                         <textarea id="details" name="details" placeholder="type the order details" class="w-100"
-                            rows="5"></textarea>
+                            rows="5" required></textarea>
                     </div>
                 </div>
-                <button type="submit" class="d-block m-auto">Send</button>
+                <button type="submit" name="submit" value="submit" class="d-block m-auto">Order</button>
             </form>
         </div>
     </section>
 
     <!-- bestselling -->
-    <section class="bestselling">
+    <section class="bestselling" id="bestselling">
         <div class="container">
             <div class="d-flex justify-content-center">
                 <h2>The Best Selling</h2>
             </div>
-
             <div class="row p-3">
-                <div class="col">
-                    <h5>the most rating</h5>
-                    <div class="py-3 d-flex flex-column gap-5">
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-8 col-sm-12">
                     <h5>the most Selling</h5>
                     <div class="py-3 d-flex flex-column gap-5">
                         <div class="d-flex align-items-center">
                             <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
+                                <img src="<?php echo $rows2[0]['image_1'] ?>" alt="" class="img-thumbnail">
                             </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
+                            <div class="ms-2">
+                                <p><?php echo $rows2[0]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows2[0]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
+                                <img src="<?php echo $rows2[1]['image_1'] ?>" alt="" class="img-thumbnail">
                             </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
+                            <div class="ms-2">
+                                <p><?php echo $rows2[1]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows2[1]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-8 col-sm-12">
+                    <h5>the most rating </h5>
+                    <div class="py-3 d-flex flex-column gap-5">
+                        <div class="d-flex align-items-center">
+                            <div class="w-25">
+                                <img src="<?php echo $rows3[0]['image_1'] ?>" alt="" class="img-thumbnail">
+                            </div>
+                            <div class="ms-2">
+                                <p><?php echo $rows3[0]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows3[0]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="w-25">
+                                <img src="<?php echo $rows3[1]['image_1'] ?>" alt="" class="img-thumbnail">
+                            </div>
+                            <div class="ms-2">
+                                <p><?php echo $rows3[1]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows3[1]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="w-25">
+                                <img src="<?php echo $rows3[2]['image_1'] ?>" alt="" class="img-thumbnail">
+                            </div>
+                            <div class="ms-2">
+                                <p><?php echo $rows3[2]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows3[2]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-12">
                     <h5>offers</h5>
                     <div class="py-3 d-flex flex-column gap-5">
                         <div class="d-flex align-items-center">
                             <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
+                                <img src="<?php echo $rows4[0]['image_1'] ?>" alt="" class="img-thumbnail">
                             </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
+                            <div class="ms-2">
+                                <p><?php echo $rows4[0]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows4[0]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
+                                <img src="<?php echo $rows4[1]['image_1'] ?>" alt="" class="img-thumbnail">
                             </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
-                            </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
+                            <div class="ms-2">
+                                <p><?php echo $rows4[1]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows4[1]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="w-25">
-                                <img src="images/products/31G2V3hbnZL.AC_SX250.jpg" alt="" class="img-thumbnail">
+                                <img src="<?php echo $rows4[2]['image_1'] ?>" alt="" class="img-thumbnail">
                             </div>
-                            <div class="text-center">
-                                <p>Sumsung A30</p>
-                                <p>1300$</p>
+                            <div class="ms-2">
+                                <p><?php echo $rows4[2]['name'] ?></p>
+                                <p class="bestsellingprice"><?php echo $rows4[2]['price'] ?> EGP</p>
+                                <button class="bestsellingbtn info">more info</button>
+                                <button class="bestsellingbtn cart">add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -585,6 +955,19 @@ include("myfile_backend.php");
 
         </div>
     </section>
+    <div id="about" class="about">
+        <p class="about_text">
+        <h4>We're Always Here To Help</h4>
+        <p>Reach out to us through any of these support channels</p>
+        <div class="mb-3">
+            <a href="https://facebook.com"><i class="fa-brands fa-facebook social-icon"></i></a>
+            <a href="https://instagram.com"><i class="fa-brands fa-instagram social-icon"></i></a>
+            <a href="https://X.com"><i class="fa-brands fa-x-twitter social-icon"></i></a>
+        </div>
+        <img src="images/icons/logo.png" alt="">
+        <i class="fa-regular fa-copyright"></i>
+        2025 Shopping. All Rights Reserved
+    </div>
 
     <script src="scripts/bootstrap.bundle.min.js"></script>
     <script src="scripts/all.min.js"></script>

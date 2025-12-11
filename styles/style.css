@@ -2,9 +2,8 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    height: 7000px;
     position: relative;
-    padding-top: 70px;
+    padding-top: 75px;
 }
 
 body::selection {
@@ -32,6 +31,7 @@ a:hover {
     color: #000 !important;
 }
 
+/* carousel */
 .carousel {
     height: 70vh;
 }
@@ -68,7 +68,7 @@ a:hover {
 .mybtn1,
 .buttons button,
 .modal-footer .infobtn,
-.modeltext .cardbtn,
+.card .cardbtn,
 .contact .contactbutton,
 .form_order button {
     border: none;
@@ -82,7 +82,7 @@ a:hover {
 
 .buttons button,
 .modal-footer .infobtn,
-.modeltext .cardbtn,
+.card .cardbtn,
 .form_order button {
     height: 30px;
     width: 150px;
@@ -95,13 +95,9 @@ a:hover {
 .buttons button:hover,
 .modal-footer .infobtn:hover,
 .contact .contactbutton:hover,
-.form_order button:hover {
+.form_order button:hover,
+.card .cardbtninfo:hover {
     background-color: #F6B1CE;
-    border-radius: 50px;
-}
-
-.modeltext .cardbtn:hover {
-    background-color: crimson;
     border-radius: 50px;
 }
 
@@ -111,23 +107,34 @@ a:hover {
     border-radius: 50%;
 }
 
-/* offcanvas */
-
-.offcan-img {
-    height: 250px !important;
-    width: 200px !important;
+.card .carousel {
+    width: 100% !important;
+    height: 280px !important;
 }
 
-.offcan-header {
-    color: crimson;
+.carousel .carousel-inner {
+    height: 100% !important;
+    width: 100% !important;
 }
 
-.offcan-img {
-    transition: ease 0.4s;
+.carousel .carousel-item {
+    height: 100% !important;
+    width: 100% !important;
 }
 
-.offcan-img:hover {
-    transform: skew(-5deg);
+.carousel-item img {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.card .card_arrows {
+    color: #1581BF;
+    font-size: 20px;
+}
+
+.card .card_arrows:hover {
+    color: #3DB6B1;
+    font-size: 20px;
 }
 
 /* Products */
@@ -150,8 +157,6 @@ a:hover {
     cursor: pointer;
 }
 
-
-
 .card img,
 .bestselling img {
     transition: ease 0.4s;
@@ -162,32 +167,22 @@ a:hover {
     transform: scale(1.05, 1.05);
 }
 
-/* model */
-
-.modal-body .carousel {
-    width: 50% !important;
-    height: 280px !important;
+.card .cardbtn {
+    display: block;
+    margin: 0 auto 13px;
 }
 
-.carousel .carousel-inner {
-    height: 100% !important;
-    width: 100% !important;
+.card .cardbtncart:hover {
+    background-color: crimson;
+    border-radius: 50px;
 }
 
-.carousel .carousel-item {
-    height: 100% !important;
-    width: 100% !important;
+.card .card-text {
+    color: crimson;
+    font-weight: bold;
 }
 
-.carousel-item img {
-    height: 100% !important;
-    width: 100% !important;
-}
-
-.modal-body .modeltext {
-    width: 50% !important;
-    text-align: center;
-}
+/* contact */
 
 .contact {
     height: 60vh;
@@ -253,4 +248,51 @@ a:hover {
 
 .bestselling img:hover {
     rotate: -3deg;
+}
+
+.bestsellingprice {
+    color: crimson;
+    font-weight: bold;
+}
+
+
+.bestselling .bestsellingbtn {
+    outline: none;
+    padding: 3px 5px;
+    color: #fff;
+    background-color: #3DB6B1;
+    border-radius: 12px;
+    border: none;
+}
+
+.bestselling .bestsellingbtn:hover {
+    background-color: #F6B1CE;
+    border-radius: 15px;
+}
+
+.bestselling .cart:hover {
+    background-color: crimson;
+}
+
+/* about */
+
+.about {
+    background-color: #1581BF;
+    padding: 10px;
+}
+
+.about .about_text {
+    color: #fff;
+    font-weight: bold;
+}
+
+.about img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.about .social-icon {
+    font-size: 20px;
+    color: #fff;
 }
