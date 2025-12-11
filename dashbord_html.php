@@ -37,7 +37,9 @@
             <div class="btn1">
                 <a href="admin_html.php"><button type="button">ADD PRODECTS</button></a>
             </div>
-
+            <div class="btn1">
+                <a href="index.php"><button type="button">HOME</button></a>
+            </div>
             <div class="mb-3">
                 <ul class="nav nav-tabs">
                     <li class="nav-item"><a class="nav-link active" href="#" onclick="showTab('products')">Products</a></li>
