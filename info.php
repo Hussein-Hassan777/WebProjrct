@@ -1,5 +1,6 @@
 <?php
-$conn = mysqli_connect("127.0.0.1", "root", "", "web_project_db", 3307);
+$conn = mysqli_connect("127.0.0.1", "root", "", "ecommerce_db", 3307);
+
 if (!$conn) {
   die("DB Error");
 }
