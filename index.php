@@ -169,7 +169,7 @@ include("index_backend.php");
                                 info</button>
                         </form>
 
-                        <form action="mycart_backend.php" method="post">
+                        <form action="cartBack.php" method="post">
                             <button class="cardbtn cardbtncart" name="cart" value="<?= $rows[$i]['id_P'] ?>">
                                 add to cart <i class="fa-solid fa-cart-arrow-down"></i>
                             </button>
