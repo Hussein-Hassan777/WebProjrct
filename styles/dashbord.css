@@ -21,16 +21,17 @@ body{
     margin:15px;
     border: solid 2px black;
     border-radius: 30px;
-    background-color: black;
-    color: white;
+    background-color: #3DB6B1;
+    color: black;
+    width: 155px;
+}
+
+.btn1 button:hover{
+    background-color: #F6B1CE;
+    border-radius: 50px;
 }
 
 
 .wrap-buttons button,.wrap-buttons .btn-primary,form button{
     width: 130px;
-}
-
-img{
-    width: 60px;
-    height: 50px;
 }

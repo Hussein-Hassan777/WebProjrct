@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    padding-top: 75px;
+}
+
+body::selection {
+    color: #000;
+    background: #F6B1CE;
+}
+
+.navbar {
+    background-color: #1581BF !important;
+}
+
+.dropdown-menu {
+    background-color: #3DB6B1;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+a {
+    color: #fff !important;
+}
+
+a:hover {
+    color: #000 !important;
+}
+
+/* carousel */
+.carousel {
+    height: 70vh;
+}
+
+.carousel-item img {
+    height: 100%;
+}
+
+.arrow {
+    font-size: 40px;
+    color: #1581BF;
+}
+
+.carousel-caption {
+    background-color: #1581bf51;
+    height: 240px;
+    transition: ease 0.4s;
+    bottom: 8rem;
+    padding: 40px;
+}
+
+.carousel-caption p {
+    margin-bottom: 50px;
+}
+
+.carousel-caption:hover {
+    background-color: #1581bf8b;
+}
+
+.buttons {
+    margin-bottom: 100px;
+}
+
+.mybtn1,
+.buttons button,
+.modal-footer .infobtn,
+.card .cardbtn,
+.contact .contactbutton,
+.form_order button {
+    border: none;
+    background-color: #3DB6B1;
+    height: 50px;
+    width: 200px;
+    color: #fff;
+    border-radius: 20px;
+    transition: ease 0.4s;
+}
+
+.buttons button,
+.modal-footer .infobtn,
+.card .cardbtn,
+.form_order button {
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+
+.mybtn1:hover,
+.buttons button:hover,
+.modal-footer .infobtn:hover,
+.contact .contactbutton:hover,
+.form_order button:hover,
+.card .cardbtninfo:hover {
+    background-color: #F6B1CE;
+    border-radius: 50px;
+}
+
+.carousel-indicators button {
+    height: 20px !important;
+    width: 20px !important;
+    border-radius: 50%;
+}
+
+.card .carousel {
+    width: 100% !important;
+    height: 280px !important;
+}
+
+.carousel .carousel-inner {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.carousel .carousel-item {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.carousel-item img {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.card .card_arrows {
+    color: #1581BF;
+    font-size: 20px;
+}
+
+.card .card_arrows:hover {
+    color: #3DB6B1;
+    font-size: 20px;
+}
+
+/* Products */
+.text-header {
+    padding-bottom: 5px;
+    border-bottom: #F6B1CE solid 5px;
+    margin-bottom: 20px;
+}
+
+.stars {
+    margin-bottom: 10px;
+}
+
+.stars .star {
+    color: #3DB6B1;
+}
+
+.stars .star:hover {
+    color: #F6B1CE;
+    cursor: pointer;
+}
+
+.card img,
+.bestselling img {
+    transition: ease 0.4s;
+}
+
+.card img:hover,
+.bestselling img:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.card .cardbtn {
+    display: block;
+    margin: 0 auto 13px;
+}
+
+.card .cardbtncart:hover {
+    background-color: crimson;
+    border-radius: 50px;
+}
+
+.card .card-text {
+    color: crimson;
+    font-weight: bold;
+}
+
+/* contact */
+
+.contact {
+    height: 60vh;
+    background: url("../images/landscaps/img4.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    color: #1581BF;
+    padding: 30px 100px 0;
+    font-weight: bold;
+}
+
+.contact h3 {
+    border-bottom: #F6B1CE 5px solid;
+    margin-bottom: 20px;
+    padding-bottom: 2px;
+    font-size: 300%;
+}
+
+.contact .btncontact {
+    background-color: #3DB6B1;
+    border: none;
+}
+
+.mygroup {
+    margin-top: 100px !important;
+}
+
+.contact .btncontact {
+    background-color: #3DB6B1;
+    border-radius: 20px 0 0 20px;
+    padding: 10px 30px;
+    color: #fff;
+}
+
+.contact .btncontact:hover {
+    background-color: #F6B1CE;
+}
+
+/* Order */
+
+.order {
+    padding: 30px;
+}
+
+.order h2,
+.bestselling h2 {
+    color: #1581BF;
+    border-bottom: #F6B1CE 5px solid;
+    padding-bottom: 2px;
+}
+
+.form_order input,
+.form_order textarea {
+    border: #66696b61 1px solid;
+    outline: none;
+}
+
+.form_order .row {
+    margin: 20px 0;
+}
+
+/* bestselling */
+
+.bestselling img:hover {
+    rotate: -3deg;
+}
+
+.bestsellingprice {
+    color: crimson;
+    font-weight: bold;
+}
+
+
+.bestselling .bestsellingbtn {
+    outline: none;
+    padding: 3px 5px;
+    color: #fff;
+    background-color: #3DB6B1;
+    border-radius: 12px;
+    border: none;
+}
+
+.bestselling .bestsellingbtn:hover {
+    background-color: #F6B1CE;
+    border-radius: 15px;
+}
+
+.bestselling .cart:hover {
+    background-color: crimson;
+}
+
+/* about */
+
+.about {
+    background-color: #1581BF;
+    padding: 10px;
+}
+
+.about .about_text {
+    color: #fff;
+    font-weight: bold;
+}
+
+.about img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.about .social-icon {
+    font-size: 20px;
+    color: #fff;
+}

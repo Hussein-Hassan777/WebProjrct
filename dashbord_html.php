@@ -10,11 +10,12 @@
 </head>
 <body>
 <div class="container-fluid">
+    
     <div class="row">
         <main class="col-md-12 ms-sm-auto px-4 py-4">
 
             <!-- ===== CARDS ===== -->
-            <div class="col-sm-12 mb-2">
+            <div class="col-sm-6 mb-2">
                 <div class="card " style="background-color: #1581BF;">
                     <div class="card-body">
                         <h5 class="card-title">Products</h5>
@@ -23,7 +24,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-12 mb-2">
+            <div class="col-sm-6 mb-2">
                 <div class="card " style="background-color: #3DB6B1;">
                     <div class="card-body">
                         <h5 class="card-title">Users</h5>
@@ -34,9 +35,11 @@
 
 
             <div class="btn1">
-                <a href="admin_html.php"><button type="button">add products</button></a>
+                <a href="admin_html.php"><button type="button">ADD PRODECTS</button></a>
             </div>
-
+            <div class="btn1">
+                <a href="index.php"><button type="button">HOME</button></a>
+            </div>
             <div class="mb-3">
                 <ul class="nav nav-tabs">
                     <li class="nav-item"><a class="nav-link active" href="#" onclick="showTab('products')">Products</a></li>
@@ -55,41 +58,33 @@
                             <th>Price</th>
                             <th>Brand</th>
                             <th>Category</th>
-                            <th>Image</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php foreach($products as $p): ?>
                         <tr>
-                            <td><?= $p['id_p'] ?></td>
+                            <td><?= $p['id_P'] ?></td>
                             <td><?= $p['name'] ?></td>
-                            <td><?= $p['description'] ?></td>
+                            <td><?= $p['describtion'] ?></td>
                             <td><?= $p['price'] ?></td>
                             <td><?= $p['brand'] ?></td>
                             <td><?= $p['category'] ?></td>
-                            <td>
-                                <?php if(!empty($p['image'])): ?>
-                                    <img src="uploads/<?= $p['image'] ?>" >
-                                <?php else: ?>
-                                    <span>No Image</span>
-                                <?php endif; ?>
-                            </td>
-
+        
                             <td>
                                 <div class="wrap-buttons">
 
                                     <form action="php_prod.php" method="POST" style="display:inline-block;">
-                                        <input type="hidden" name="id_prod" value="<?= $p['id_p'] ?>">
+                                        <input type="hidden" name="id_prod" value="<?= $p['id_P'] ?>">
                                         <input type="hidden" name="action" value="delete">
                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
 
                                     <a class="btn btn-primary" 
                                     href="admin_html.php?
-                                    id=<?= $p['id_p'] ?>&
+                                    id=<?= $p['id_P'] ?>&
                                     name=<?= urlencode($p['name']) ?>&
-                                    desc=<?= urlencode($p['description']) ?>&
+                                    desc=<?= urlencode($p['describtion']) ?>&
                                     price=<?= $p['price'] ?>&
                                     brand=<?= urlencode($p['brand']) ?>&
                                     category=<?= urlencode($p['category']) ?>">
@@ -114,23 +109,18 @@
                             <th>Last Name</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>Actions</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php foreach($users as $u): ?>
                         <tr>
+
                             <td><?= $u['first_name'] ?></td>
                             <td><?= $u['last_name'] ?></td>
                             <td><?= $u['phone'] ?></td>
                             <td><?= $u['email'] ?></td>
-                            <td>
-                                <form action="user_del.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
-                                    <input type="hidden" name="id_u" value="<?= $u['id_u'] ?>">
-                                    <input type="hidden" name="action" value="delete">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </td>
+                            <td><?= $u['role'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -142,6 +132,7 @@
 </div>
 
     <script src="scripts/bootstrap.bundle.min.js"></script>
+    
     <script>
         function showTab(tabId){
             document.querySelectorAll('.tab-content').forEach(tc=>tc.style.display='none');
