@@ -37,7 +37,9 @@
             <div class="btn1">
                 <a href="admin_html.php"><button type="button">ADD PRODECTS</button></a>
             </div>
-
+            <div class="btn1">
+                <a href="index.php"><button type="button">HOME</button></a>
+            </div>
             <div class="mb-3">
                 <ul class="nav nav-tabs">
                     <li class="nav-item"><a class="nav-link active" href="#" onclick="showTab('products')">Products</a></li>
@@ -107,7 +109,7 @@
                             <th>Last Name</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>Actions</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,9 +120,7 @@
                             <td><?= $u['last_name'] ?></td>
                             <td><?= $u['phone'] ?></td>
                             <td><?= $u['email'] ?></td>
-                            <td>
-
-                            </td>
+                            <td><?= $u['role'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
