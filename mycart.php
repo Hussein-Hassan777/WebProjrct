@@ -64,16 +64,26 @@ if(!empty($cart)){
                                 <h5 class="item-title"><?= $item['name'] ?></h5>
                                 <p class="item-price">$<?= number_format($item['price'], 2) ?></p>
                                 <div class="d-flex align-items-center gap-2">
-                                    <button class="qty-btn">-</button>
-                                    <span class="qty-value"><?= $item['quantity'] ?></span>
-                                    <button class="qty-btn">+</button>
+                                   <form action="cartBack.php" method="post" style="display:inline;">
+        <input type="hidden" name="decrease" value="<?= $item['id_P'] ?>">
+        <button type="submit" class="qty-btn btn btn-sm btn-secondary">-</button>
+    </form>
+    <span class="qty-value"><?= $item['quantity'] ?></span>
+    <form action="cartBack.php" method="post" style="display:inline;">
+        <input type="hidden" name="increase" value="<?= $item['id_P'] ?>">
+        <button type="submit" class="qty-btn btn btn-sm btn-secondary">+</button>
+    </form>
                                 </div>
-                                <form action="mycart_backend.php" method="post" class="d-inline">
+                                <form action="cartBack.php" method="post" class="d-inline">
                                     <button class="remove-btn btn btn-sm btn-danger mt-2" name="remove" value="<?= $item['id_P'] ?>">Remove</button>
                                 </form>
-                                <button class="make-info-btn btn btn-sm btn-secondary mt-2">Make Info</button>
-                            </div>
-                        </div>
+                              <form action="info.php" method="post" class="d-inline">
+                                    <button type="submit" name="info" value="<?= $item['id_P'] ?>" class="make-info-btn btn btn-sm btn-secondary mt-2">
+                                        Make Info
+                                    </button>
+                                </form>
+                                                            </div>
+                                                        </div>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p>Your cart is empty.</p>

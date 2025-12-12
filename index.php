@@ -266,7 +266,7 @@ include("index_backend.php");
                                         <button class="bestsellingbtn info" name="info"
                                             value="<?= $rows2[$k]['id_P'] ?>">more info</button>
                                     </form>
-                                    <form action="mycart_backend.php" method="post" style="display: inline;">
+                                    <form action="cartBack.php" method="post" style="display: inline;">
                                         <button class="bestsellingbtn cart" name="cart"
                                             value="<?= $rows2[$k]['id_P'] ?>">add
                                             to cart</button>
