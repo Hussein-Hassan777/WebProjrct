@@ -106,7 +106,10 @@ if(!empty($cart)){
                         <strong>Total</strong>
                         <strong>$<?= number_format($total + 5, 2) ?></strong>
                     </div>
-                    <button class="checkout-btn btn btn-primary mt-4 w-100">Proceed to Checkout</button>
+                        <form action="checkout.php" method="post">
+                            <button type="submit" class="checkout-btn btn btn-primary mt-4 w-100">Proceed to Checkout</button>
+                        </form>
+
                 </div>
             </div>
         </div>
