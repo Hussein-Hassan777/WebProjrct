@@ -34,26 +34,70 @@ if(!empty($cart)){
     <link rel="stylesheet" href="styles/mycart_style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                <img src="images/icons/nmt2ien6snbvvd91bedf19i52s.png" alt="">
-            </a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Discount</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Best Sells</a></li>
-                </ul>
-                <a class="nav-link" href="mycart.php">
-                    <i class="fa-solid fa-cart-arrow-down"></i> mycart
-                </a>
-            </div>
-        </div>
-    </nav>
+     <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/icons/logo.png" alt="" width="50" height="50" class="rounded-5">
+        </a>
 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">about us</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        pages
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-center" href="#">news</a></li>
+                        <li><a class="dropdown-item text-center" href="#">latest products</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center" href="login.php">login</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#bestselling">bestselling</a>
+                </li>
+            </ul>
+
+            <!-- cart link fixed -->
+            <a class="nav-link text-white d-flex align-items-center" href="mycart.php">
+                <i class="fa-solid fa-cart-arrow-down me-1"></i>
+                <span>My Cart</span>
+            </a>
+
+        </div>
+    </div>
+</nav>
+</nav>
     <div class="container py-5">
-        <h2 class="text-center mb-4">MY CART</h2>
+    <h1 class ="text-center" style="
+    font-size: 45px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #333;
+        text-transform: uppercase;
+        border-bottom: 3px solid #ff6600;
+        padding-bottom: 10px;
+        margin-top: 5px;
+">
+    MY CART
+</h1>
         <div class="row">
             <div class="col-lg-8">
                 <?php if(!empty($cart_items)): ?>
