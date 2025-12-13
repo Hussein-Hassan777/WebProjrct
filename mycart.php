@@ -34,26 +34,70 @@ if(!empty($cart)){
     <link rel="stylesheet" href="styles/mycart_style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                <img src="images/icons/nmt2ien6snbvvd91bedf19i52s.png" alt="">
-            </a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Discount</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Best Sells</a></li>
-                </ul>
-                <a class="nav-link" href="mycart.php">
-                    <i class="fa-solid fa-cart-arrow-down"></i> mycart
-                </a>
-            </div>
-        </div>
-    </nav>
+     <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/icons/logo.png" alt="" width="50" height="50" class="rounded-5">
+        </a>
 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">about us</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        pages
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-center" href="#">news</a></li>
+                        <li><a class="dropdown-item text-center" href="#">latest products</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center" href="login.php">login</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#bestselling">bestselling</a>
+                </li>
+            </ul>
+
+            <!-- cart link fixed -->
+            <a class="nav-link text-white d-flex align-items-center" href="mycart.php">
+                <i class="fa-solid fa-cart-arrow-down me-1"></i>
+                <span>My Cart</span>
+            </a>
+
+        </div>
+    </div>
+</nav>
+</nav>
     <div class="container py-5">
-        <h2 class="text-center mb-4">MY CART</h2>
+    <h1 class ="text-center" style="
+    font-size: 45px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #333;
+        text-transform: uppercase;
+        border-bottom: 3px solid #ff6600;
+        padding-bottom: 10px;
+        margin-top: 5px;
+">
+    MY CART
+</h1>
         <div class="row">
             <div class="col-lg-8">
                 <?php if(!empty($cart_items)): ?>
@@ -64,16 +108,26 @@ if(!empty($cart)){
                                 <h5 class="item-title"><?= $item['name'] ?></h5>
                                 <p class="item-price">$<?= number_format($item['price'], 2) ?></p>
                                 <div class="d-flex align-items-center gap-2">
-                                    <button class="qty-btn">-</button>
-                                    <span class="qty-value"><?= $item['quantity'] ?></span>
-                                    <button class="qty-btn">+</button>
+                                   <form action="cartBack.php" method="post" style="display:inline;">
+        <input type="hidden" name="decrease" value="<?= $item['id_P'] ?>">
+        <button type="submit" class="qty-btn btn btn-sm btn-secondary">-</button>
+    </form>
+    <span class="qty-value"><?= $item['quantity'] ?></span>
+    <form action="cartBack.php" method="post" style="display:inline;">
+        <input type="hidden" name="increase" value="<?= $item['id_P'] ?>">
+        <button type="submit" class="qty-btn btn btn-sm btn-secondary">+</button>
+    </form>
                                 </div>
-                                <form action="mycart_backend.php" method="post" class="d-inline">
+                                <form action="cartBack.php" method="post" class="d-inline">
                                     <button class="remove-btn btn btn-sm btn-danger mt-2" name="remove" value="<?= $item['id_P'] ?>">Remove</button>
                                 </form>
-                                <button class="make-info-btn btn btn-sm btn-secondary mt-2">Make Info</button>
-                            </div>
-                        </div>
+                              <form action="info.php" method="post" class="d-inline">
+                                    <button type="submit" name="info" value="<?= $item['id_P'] ?>" class="make-info-btn btn btn-sm btn-secondary mt-2">
+                                        Make Info
+                                    </button>
+                                </form>
+                                                            </div>
+                                                        </div>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <p>Your cart is empty.</p>
@@ -96,7 +150,10 @@ if(!empty($cart)){
                         <strong>Total</strong>
                         <strong>$<?= number_format($total + 5, 2) ?></strong>
                     </div>
-                    <button class="checkout-btn btn btn-primary mt-4 w-100">Proceed to Checkout</button>
+                        <form action="checkout.php" method="post">
+                            <button type="submit" class="checkout-btn btn btn-primary mt-4 w-100">Proceed to Checkout</button>
+                        </form>
+
                 </div>
             </div>
         </div>

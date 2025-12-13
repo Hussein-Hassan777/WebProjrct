@@ -2,6 +2,8 @@
 
 body {
     font-family: "Poppins", sans-serif;
+            padding-top: 80px; 
+
 }
 
 .navbar {
@@ -37,6 +39,38 @@ body::selection {
     background-color: #F6B1CE;
     color: #fff;
 }
+.cart-item {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+        border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: .3s;
+}
+
+.cart-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+}
+.summary-box {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+
+    transition: .3s;
+}
+.summary-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+}
+
+
 
 .checkout-btn {
     width: 100%;
