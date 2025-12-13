@@ -1,40 +1,40 @@
+<?php include "conn.php"; ?>
 <?php
 session_start();
-$conn = new mysqli("localhost:3306", "root", "", "ecommerce_db");
-if($conn->connect_error) die("Connection failed: " . $conn->connect_error);
-if(empty($_SESSION['cart'])){
-    echo "<p>Your cart is empty. <a href='index.php'>Go back to products</a></p>";
-    exit;
-}
-if(!isset($_SESSION['user_id'])){
-    echo "<p>Please <a href='login.php'>login</a> first to proceed with checkout.</p>";
-    exit;
-}
 
-$user_id = $_SESSION['user_id'];
+$user_id = 'G1';
 $total = 0;
 
-foreach($_SESSION['cart'] as $product_id => $quantity){
-    $sql = "SELECT price, name FROM products WHERE id_P = '$product_id'";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0){
-        $product = $result->fetch_assoc();
-        $total += $product['price'] * $quantity;
+foreach($_SESSION['cart'] as $product_id => $qty){
+    $sql = "SELECT price, name FROM products WHERE id_P='$product_id'";
+    $res = $conn->query($sql);
+    if($res && $res->num_rows > 0){
+        $prod = $res->fetch_assoc();
+        $total += $prod['price'] * $qty;
     }
 }
 
-$sql_order = "INSERT INTO orders (user_id, total_amount, created_at) VALUES ('$user_id', '$total', NOW())";
-if($conn->query($sql_order) === TRUE){
-    $order_id = $conn->insert_id;
+if(isset($_GET['confirm'])){
+    $order_id = 'O'.time(); 
+    $sql_order = "INSERT INTO orders (id_O, history, id_U) VALUES ('$order_id', NOW(), '$user_id')";
+    $conn->query($sql_order);
 
-    foreach($_SESSION['cart'] as $product_id => $quantity){
-        $sql_item = "INSERT INTO order_items (order_id, product_id, quantity) VALUES ('$order_id', '$product_id', '$quantity')";
+    foreach($_SESSION['cart'] as $product_id => $qty){
+        $id_ol = 'OL'.time().rand(10,99);
+        $sql_item = "INSERT INTO order_lists (id_OL, id_O, id_P) VALUES ('$id_ol', '$order_id', '$product_id')";
         $conn->query($sql_item);
     }
 
     $_SESSION['cart'] = [];
-
-    echo "<p>Order completed successfully! <a href='index.php'>Go back to shopping</a></p>";
-} else {
-    echo "<p>Error: " . $conn->error . "</p>";
+    echo "<script>alert('Order completed successfully!'); window.location.href='index.php';</script>";
+    exit;
 }
+
+echo "<script>
+    if(confirm('Your total is $$total. Press OK to confirm order.')) {
+        window.location.href='checkout.php?confirm=1';
+    } else {
+        window.location.href='mycart.php';
+    }
+</script>";
+?>
