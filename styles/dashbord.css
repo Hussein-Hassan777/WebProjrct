@@ -1,37 +1,57 @@
-body{
-    padding:40px ;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+.container-fluid {
+    padding: 20px;
 }
 
 .card {
-    color: black;
-    text-align: center;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 30px;
+    border-radius: 12px;
+    color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.btn1{
-    display: flex;
-    justify-content: flex-end;
-    border: none;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.btn1 button{
-    padding: 8px;
-    margin:15px;
-    border: solid 2px black;
-    border-radius: 30px;
-    background-color: #3DB6B1;
-    color: black;
-    width: 155px;
+.card-title {
+    font-size: 25px;
+    font-weight: bold;
 }
 
-.btn1 button:hover{
-    background-color: #F6B1CE;
-    border-radius: 50px;
+.card-text {
+    font-size: 22px;
+    font-weight: 600;
 }
 
 
-.wrap-buttons button,.wrap-buttons .btn-primary,form button{
-    width: 130px;
+.card:nth-child(1) { background-color: #1581BF; } /* Products */
+.card:nth-child(2) { background-color: #28a745; } /* Users */
+.card:nth-child(3) { background-color: #ffc107; } /* Orders */
+.card:nth-child(4) { background-color: #dc3545; } /* Total */
+
+.wrap-buttons .btn {
+    margin-right: 5px;
+    border-radius: 6px;
 }
+
+.nav-tabs {
+    margin-bottom: 15px;
+}
+
+.nav-link {
+    color: #1581BF;
+    font-weight: bold;
+}
+
+.nav-link.active {
+    background-color: #1581BF !important;
+    color: #fff !important;
+    border-radius: 6px 6px 0 0;
+}
+
+
