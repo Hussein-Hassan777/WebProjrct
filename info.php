@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "ecommerce_db");
+$conn = mysqli_connect("localhost:3307", "root", "", "ecommerce_db");
 if (!$conn) {
     die(mysqli_connect_error());
 }
@@ -34,75 +34,77 @@ $more = mysqli_query($conn, $moreQuery);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($product['name']) ?></title>
     <link rel="stylesheet" href="styles/info_style.css">
 </head>
+
 <body>
-<div class="navbar">
-    <div class="brand">brand stor</div>
-    <div class="nav-links">
-        <a href="index.php">Home</a>
-        <a href="mycart.php">My Cart</a>
-    </div>
-</div>
-<div class="container">
-    <div class="product-details">
-        <div class="product-image">
-            <img id="sliderImg"
-                 src="<?= htmlspecialchars($product['image_1']) ?>"
-                 data-img1="<?= htmlspecialchars($product['image_1']) ?>"
-                 data-img2="<?= htmlspecialchars($product['image_2']) ?>"
-                 data-img3="<?= htmlspecialchars($product['image_3']) ?>">
-        </div>
-        <div class="product-info">
-            <h2><?= htmlspecialchars($product['name']) ?></h2>
-            <p><strong>Description:</strong> <?= htmlspecialchars($product['describtion']) ?></p>
-            <p><strong>Brand:</strong> <?= htmlspecialchars($product['brand']) ?></p>
-            <p><strong>Category:</strong> <?= htmlspecialchars($product['category']) ?></p>
-            <div class="price"><?= htmlspecialchars($product['price']) ?> EGP</div>
-            <form method="post" action="cartBack.php">
-                <button type="submit" name="cart" value="<?= $product['id_P'] ?>" class="btn">
-                    Add To Cart
-                </button>
-            </form>
+    <div class="navbar">
+        <div class="brand">brand stor</div>
+        <div class="nav-links">
+            <a href="index.php">Home</a>
+            <a href="mycart.php">My Cart</a>
         </div>
     </div>
-    <div class="more-products">
-        <h3>More Products</h3>
-        <div class="products-grid">
-            <?php while ($row = mysqli_fetch_assoc($more)) { ?>
-                <div class="product-card">
-                    <div class="img-box">
-                        <img src="<?= htmlspecialchars($row['image_1']) ?>">
+    <div class="container">
+        <div class="product-details">
+            <div class="product-image">
+                <img id="sliderImg" src="<?= htmlspecialchars($product['image_1']) ?>"
+                    data-img1="<?= htmlspecialchars($product['image_1']) ?>"
+                    data-img2="<?= htmlspecialchars($product['image_2']) ?>"
+                    data-img3="<?= htmlspecialchars($product['image_3']) ?>">
+            </div>
+            <div class="product-info">
+                <h2><?= htmlspecialchars($product['name']) ?></h2>
+                <p><strong>Description:</strong> <?= htmlspecialchars($product['describtion']) ?></p>
+                <p><strong>Brand:</strong> <?= htmlspecialchars($product['brand']) ?></p>
+                <p><strong>Category:</strong> <?= htmlspecialchars($product['category']) ?></p>
+                <div class="price"><?= htmlspecialchars($product['price']) ?> EGP</div>
+                <form method="post" action="cartBack.php">
+                    <button type="submit" name="cart" value="<?= $product['id_P'] ?>" class="btn">
+                        Add To Cart
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="more-products">
+            <h3>More Products</h3>
+            <div class="products-grid">
+                <?php while ($row = mysqli_fetch_assoc($more)) { ?>
+                    <div class="product-card">
+                        <div class="img-box">
+                            <img src="<?= htmlspecialchars($row['image_1']) ?>">
+                        </div>
+                        <p><?= htmlspecialchars($row['name']) ?></p>
+                        <div class="card-buttons">
+                            <a href="info.php?id=<?= $row['id_P'] ?>" class="btn">More Info</a>
+                            <form method="post" action="cartBack.php">
+                                <button type="submit" name="cart" value="<?= $row['id_P'] ?>" class="btn">
+                                    Add
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <p><?= htmlspecialchars($row['name']) ?></p>
-                    <div class="card-buttons">
-                        <a href="info.php?id=<?= $row['id_P'] ?>" class="btn">More Info</a>
-                        <form method="post" action="cartBack.php">
-                            <button type="submit" name="cart" value="<?= $row['id_P'] ?>" class="btn">
-                                Add
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
     </div>
-</div>
-<footer class="footer">
-    <p> 2025 Shopping. All Rights Reserved © 2025</p>
-    <p>Simple E-Commerce Demo</p>
-</footer>
-<script>
-    const img = document.getElementById("sliderImg");
-    const images = [img.dataset.img1, img.dataset.img2, img.dataset.img3].filter(Boolean);
-    let i = 0;
-    setInterval(() => {
-        i = (i + 1) % images.length;
-        img.src = images[i];
-    }, 2500);
-</script>
+    <footer class="footer">
+        <p> 2025 Shopping. All Rights Reserved © 2025</p>
+        <p>Simple E-Commerce Demo</p>
+    </footer>
+    <script>
+        const img = document.getElementById("sliderImg");
+        const images = [img.dataset.img1, img.dataset.img2, img.dataset.img3].filter(Boolean);
+        let i = 0;
+        setInterval(() => {
+            i = (i + 1) % images.length;
+            img.src = images[i];
+        }, 2500);
+    </script>
 </body>
+
 </html>
