@@ -1,109 +1,110 @@
 <?php
-$conn = mysqli_connect("127.0.0.1", "root", "", "ecommerce_db", 3307);
-
+session_start();
+$conn = mysqli_connect("localhost:3307", "root", "", "ecommerce_db");
 if (!$conn) {
-  die("DB Error");
+    die(mysqli_connect_error());
 }
-
-if (!isset($_GET['id'])) {
-  die("No Product");
+if (isset($_POST['info'])) {
+    $id = $_POST['info'];
+} elseif (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    die("No Product");
 }
-
-$id = $_GET['id'];
-
-$sql = "
+$id = mysqli_real_escape_string($conn, $id);
+$productQuery = "
 SELECT p.*, i.image_1, i.image_2, i.image_3
 FROM products p
-JOIN images i ON p.id_P = i.id_P
+LEFT JOIN images i ON p.id_P = i.id_P
 WHERE p.id_P = '$id'
 ";
-$res = mysqli_query($conn, $sql);
-$product = mysqli_fetch_assoc($res);
-
-$more = mysqli_query($conn, "
+$productResult = mysqli_query($conn, $productQuery);
+if (!$productResult || mysqli_num_rows($productResult) == 0) {
+    die("Product not found");
+}
+$product = mysqli_fetch_assoc($productResult);
+$moreQuery = "
 SELECT p.id_P, p.name, i.image_1
 FROM products p
-JOIN images i ON p.id_P = i.id_P
+LEFT JOIN images i ON p.id_P = i.id_P
 WHERE p.id_P != '$id'
 LIMIT 4
-");
+";
+$more = mysqli_query($conn, $moreQuery);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title><?= $product['name'] ?></title>
-  <link rel="stylesheet" href="info.css">
+    <meta charset="UTF-8">
+    <title><?= htmlspecialchars($product['name']) ?></title>
+    <link rel="stylesheet" href="styles/info_style.css">
 </head>
 
 <body>
-
-  <div class="navbar">
-    <div class="brand">Brand</div>
-    <div class="nav-links">
-      <a href="index.php">Home</a>
-      <a href="cart.php">My Cart</a>
+    <div class="navbar">
+        <div class="brand">brand stor</div>
+        <div class="nav-links">
+            <a href="index.php">Home</a>
+            <a href="mycart.php">My Cart</a>
+        </div>
     </div>
-  </div>
-
-  <div class="container">
-
-    <div class="product-details">
-
-      <div class="product-image">
-        <img id="sliderImg" src="<?= $product['image_1'] ?>" data-img1="<?= $product['image_1'] ?>"
-          data-img2="<?= $product['image_2'] ?>" data-img3="<?= $product['image_3'] ?>">
-      </div>
-
-      <div class="product-info">
-        <h2><?= $product['name'] ?></h2>
-        <p><strong>Description:</strong> <?= $product['describtion'] ?></p>
-        <p><strong>Brand:</strong> <?= $product['brand'] ?></p>
-        <p><strong>Category:</strong> <?= $product['category'] ?></p>
-        <div class="price"><?= $product['price'] ?> EGP</div>
-        <button class="btn">Add To Cart</button>
-      </div>
-
-    </div>
-
-    <div class="more-products">
-      <h3>More Products</h3>
-
-      <div class="products-grid">
-        <?php while ($row = mysqli_fetch_assoc($more)) { ?>
-          <div class="product-card">
-            <div class="img-box">
-              <img src="<?= $row['image_1'] ?>">
+    <div class="container">
+        <div class="product-details">
+            <div class="product-image">
+                <img id="sliderImg" src="<?= htmlspecialchars($product['image_1']) ?>"
+                    data-img1="<?= htmlspecialchars($product['image_1']) ?>"
+                    data-img2="<?= htmlspecialchars($product['image_2']) ?>"
+                    data-img3="<?= htmlspecialchars($product['image_3']) ?>">
             </div>
-            <p><?= $row['name'] ?></p>
-            <div class="card-buttons">
-              <a href="info.php?id=<?= $row['id_P'] ?>" class="btn">More Info</a>
-              <button class="btn">Add</button>
+            <div class="product-info">
+                <h2><?= htmlspecialchars($product['name']) ?></h2>
+                <p><strong>Description:</strong> <?= htmlspecialchars($product['describtion']) ?></p>
+                <p><strong>Brand:</strong> <?= htmlspecialchars($product['brand']) ?></p>
+                <p><strong>Category:</strong> <?= htmlspecialchars($product['category']) ?></p>
+                <div class="price"><?= htmlspecialchars($product['price']) ?> EGP</div>
+                <form method="post" action="cartBack.php">
+                    <button type="submit" name="cart" value="<?= $product['id_P'] ?>" class="btn">
+                        Add To Cart
+                    </button>
+                </form>
             </div>
-          </div>
-        <?php } ?>
-      </div>
+        </div>
+        <div class="more-products">
+            <h3>More Products</h3>
+            <div class="products-grid">
+                <?php while ($row = mysqli_fetch_assoc($more)) { ?>
+                    <div class="product-card">
+                        <div class="img-box">
+                            <img src="<?= htmlspecialchars($row['image_1']) ?>">
+                        </div>
+                        <p><?= htmlspecialchars($row['name']) ?></p>
+                        <div class="card-buttons">
+                            <a href="info.php?id=<?= $row['id_P'] ?>" class="btn">More Info</a>
+                            <form method="post" action="cartBack.php">
+                                <button type="submit" name="cart" value="<?= $row['id_P'] ?>" class="btn">
+                                    Add
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
     </div>
-
-  </div>
-
-  <footer class="footer">
-    <p>Web Project Store © 2025</p>
-    <p>Simple E-Commerce Demo</p>
-  </footer>
-
-  <script>
-    const img = document.getElementById("sliderImg");
-    const images = [img.dataset.img1, img.dataset.img2, img.dataset.img3];
-    let i = 0;
-    setInterval(() => {
-      i = (i + 1) % images.length;
-      img.src = images[i];
-    }, 2500);
-  </script>
-
+    <footer class="footer">
+        <p> 2025 Shopping. All Rights Reserved © 2025</p>
+        <p>Simple E-Commerce Demo</p>
+    </footer>
+    <script>
+        const img = document.getElementById("sliderImg");
+        const images = [img.dataset.img1, img.dataset.img2, img.dataset.img3].filter(Boolean);
+        let i = 0;
+        setInterval(() => {
+            i = (i + 1) % images.length;
+            img.src = images[i];
+        }, 2500);
+    </script>
 </body>
 
 </html>
