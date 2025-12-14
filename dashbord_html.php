@@ -146,6 +146,7 @@
                     <th>ID Order</th>
                     <th>History</th>
                     <th>ID Customer</th>
+                    <th>total Orrder</th>
                 </tr>
             </thead>
             <tbody>
@@ -154,7 +155,8 @@
                     <td><?= $o['id_O'] ?></td>
                     <td><?= $o['history'] ?></td>
                     <td><?= $o['id_U'] ?></td>
-                   
+                   <td><?= number_format($o['total_order'], 2) ?> EGP</td>
+
                 </tr>
             <?php endforeach; ?>
             </tbody>
