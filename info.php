@@ -41,7 +41,7 @@ $more = mysqli_query($conn, $moreQuery);
 </head>
 <body>
 <div class="navbar">
-    <div class="brand">Web Project Store</div>
+    <div class="brand">brand stor</div>
     <div class="nav-links">
         <a href="index.php">Home</a>
         <a href="mycart.php">My Cart</a>
@@ -92,7 +92,7 @@ $more = mysqli_query($conn, $moreQuery);
     </div>
 </div>
 <footer class="footer">
-    <p>Web Project Store © 2025</p>
+    <p> 2025 Shopping. All Rights Reserved © 2025</p>
     <p>Simple E-Commerce Demo</p>
 </footer>
 <script>
