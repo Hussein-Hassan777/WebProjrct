@@ -56,7 +56,9 @@ if (isset($_POST['action'])) {
                     VALUES ('$id', '$img1', '$img2', '$img3')";
             mysqli_query($conn, $addImg);
 
-            header("Location: admin_html.php");
+             echo "<script>alert('add successful'); 
+            window.location.href='admin_html.php';</script>";
+
             exit();
         }
     }
@@ -97,7 +99,8 @@ if (isset($_POST['action'])) {
             image_3='$img3'
             WHERE id_P='$id'";
         mysqli_query($conn, $updateImg);
-        header("Location: admin_html.php");
+         echo "<script>alert('UPdate successful'); 
+            window.location.href='admin_html.php';</script>";
         exit();
     }
 
@@ -113,7 +116,8 @@ if (isset($_POST['action'])) {
             rmdir($folder);
         }
 
-        header("Location: dashbord_html.php");
+        echo "<script>alert('Delete successful'); 
+            window.location.href='admin_html.php';</script>";
         exit();
     }
 

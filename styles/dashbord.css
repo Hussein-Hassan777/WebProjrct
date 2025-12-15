@@ -10,7 +10,6 @@ body {
 
 .card {
     border-radius: 12px;
-    color: #fff;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -27,12 +26,6 @@ body {
     font-size: 22px;
     font-weight: 600;
 }
-
-
-.card:nth-child(1) { background-color: #1581BF; } /* Products */
-.card:nth-child(2) { background-color: #28a745; } /* Users */
-.card:nth-child(3) { background-color: #ffc107; } /* Orders */
-.card:nth-child(4) { background-color: #dc3545; } /* Total */
 
 .wrap-buttons .btn {
     margin-right: 5px;
@@ -54,4 +47,10 @@ body {
     border-radius: 6px 6px 0 0;
 }
 
-
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: flex-end;
+    margin-bottom: 3px;
+}
