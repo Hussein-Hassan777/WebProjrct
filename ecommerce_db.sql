@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Dec 11, 2025 at 07:07 AM
+-- Generation Time: Dec 15, 2025 at 01:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -91,7 +91,7 @@ INSERT INTO `offers` (`id_P`) VALUES
 CREATE TABLE `orders` (
   `id_O` varchar(30) NOT NULL,
   `history` date NOT NULL DEFAULT current_timestamp(),
-  `id_U` varchar(30) NOT NULL
+  `id_U` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -99,10 +99,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id_O`, `history`, `id_U`) VALUES
-('O1', '2025-12-08', 'C1'),
-('O2', '2025-12-09', 'C2'),
-('O3', '2025-12-09', 'C2'),
-('O4', '2025-12-09', 'C3');
+('O1', '2025-12-08', 1),
+('O2', '2025-12-09', 1),
+('O3', '2025-12-09', 2),
+('O4', '2025-12-09', 3);
 
 -- --------------------------------------------------------
 
@@ -188,7 +188,8 @@ CREATE TABLE `special_order` (
 --
 
 INSERT INTO `special_order` (`name`, `email`, `phone_number`, `message_title`, `order_details`) VALUES
-('Hussein', 'hussein@gmail.com', '01174628661', 'blue T-shirt', 'I want like a blue cotton T-shirt for summer');
+('Hussein', 'hussein@gmail.com', '01174628661', 'blue T-shirt', 'I want like a blue cotton T-shirt for summer'),
+('Al-Hussein Hassan', 'husseinhassan@gmail.com', '01174628661', 'jacket', 'I want a summer blue jacket');
 
 -- --------------------------------------------------------
 
@@ -234,24 +235,28 @@ INSERT INTO `the_most_selling` (`id_P`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id_U` varchar(20) NOT NULL,
+  `id_U` int(10) NOT NULL,
   `role` varchar(20) NOT NULL,
   `first_name` varchar(30) NOT NULL,
   `last_name` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(11) NOT NULL,
-  `password` varchar(16) NOT NULL
+  `password` varchar(16) NOT NULL,
+  `profile_img` varchar(100) NOT NULL DEFAULT 'images\\icons\\man.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_U`, `role`, `first_name`, `last_name`, `email`, `phone`, `password`) VALUES
-('A1', 'admin', 'admin1', 'admin1', 'admin1@gmail.com', '01138562381', '0000'),
-('C1', 'customer', 'Ahmed', 'Ali', 'AhmedAli@gmail.com', '01159773461', '1234'),
-('C2', 'customer', 'Aya', 'Mohammed', 'AyaMohammed@gmail.com', '01174996253', '5678'),
-('C3', 'customer', 'Khalid', 'Ali', 'KhalidAli@gmail.com', '01273649745', '1111');
+INSERT INTO `users` (`id_U`, `role`, `first_name`, `last_name`, `email`, `phone`, `password`, `profile_img`) VALUES
+(1, 'admin', 'admin1', 'admin1', 'admin1@gmail.com', '01138562381', '0000', 'images\\icons\\man.png'),
+(2, 'customer', 'Ahmed', 'Ali', 'AhmedAli@gmail.com', '01159773461', '1234', 'images\\icons\\man.png'),
+(3, 'customer', 'Aya', 'Mohammed', 'AyaMohammed@gmail.com', '01174996253', '5678', 'images\\icons\\man.png'),
+(4, 'customer', 'Khalid', 'Ali', 'KhalidAli@gmail.com', '01273649745', '1111', 'images\\icons\\man.png'),
+(5, 'customer', 'Mona', 'Ahmed', 'MonaAhmed@gmail.com', '01167448935', '3333', 'images\\icons\\man.png'),
+(6, 'customer', 'Hussein', 'Hassan', 'HusseinHassan@gmail.com', '01125992361', '7777', 'images\\icons\\man.png'),
+(7, 'customer', 'Hany', 'Ali', 'HanyAli@gmail.com', '01175893561', '4444', 'images\\icons\\man.png');
 
 --
 -- Indexes for dumped tables
@@ -309,6 +314,16 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id_U`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `phone` (`phone`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_U` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
