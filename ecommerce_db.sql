@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Dec 15, 2025 at 03:59 PM
+-- Generation Time: Dec 15, 2025 at 05:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -102,12 +102,22 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id_O`, `history`, `id_U`, `guest_email`, `guest_phone`, `guest_address`) VALUES
+('O04535715', '2025-12-15', NULL, 'omer@gmail', '3289434892', 'cairo'),
+('O04542454', '2025-12-15', NULL, 'omer@gmail', '98053422', 'cairo'),
+('O04551018', '2025-12-15', NULL, 'aaa@gmail.com', '2890412', 'cairo'),
+('O05043250', '2025-12-15', NULL, 'ibrahim@gmail', '01138947232', 'cairo'),
 ('O694020e35460c', '2025-12-15', NULL, 'ali@gmail.com', '01129137281', 'Cairo, Egypt'),
 ('O6940215454be5', '2025-12-15', NULL, 'omer@example.com', '01238294723', 'Alexandria, Egypt'),
 ('O6940218026abf', '2025-12-15', NULL, 'ibrahim@example.com', '0158927322', 'Alexandria, Egypt'),
 ('O694021ac67b80', '2025-12-15', NULL, 'mona@example.com', '01728917211', 'Tanta, Egypt'),
 ('O694021f8967e7', '2025-12-15', NULL, 'ali@gmail.com', '01292492482', 'Tanta, Egypt'),
-('O694021f8067e7', '2025-12-15', NULL, 'ali@gmail.com', '01292492482', 'Tanta, Egypt');
+('O6940244ad2d2a', '2025-12-15', NULL, 'ibrahim@gmail.com', '01245687476', 'cairo'),
+('O6940247b5e230', '2025-12-15', NULL, 'ail@gmail.com', '078754675765', 'cairo'),
+('O694028752e1b5', '2025-12-15', NULL, 'omer@gmail.com', '02183982138', 'Sharm El-Sheikh, Egypt'),
+('O694029fc61834', '2025-12-15', NULL, 'ali@gmail.com', '0912389211', 'cairo'),
+('O69402b5a52e48', '2025-12-15', NULL, 'AIL@gmail', '09213928321', 'cairo'),
+('O69402bedd0052', '2025-12-15', NULL, 'ibrahim@gmail', '24929084029', 'cairo'),
+('O69402d2c8b89e', '2025-12-15', NULL, 'omer@gmail', '0193819312', 'cairo');
 
 -- --------------------------------------------------------
 
@@ -118,22 +128,35 @@ INSERT INTO `orders` (`id_O`, `history`, `id_U`, `guest_email`, `guest_phone`, `
 CREATE TABLE `order_lists` (
   `id_OL` varchar(30) NOT NULL,
   `id_O` varchar(30) NOT NULL,
-  `id_P` varchar(30) NOT NULL
+  `id_P` varchar(30) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order_lists`
 --
 
-INSERT INTO `order_lists` (`id_OL`, `id_O`, `id_P`) VALUES
-('OL694020e356f03', 'O694020e35460c', 'P1'),
-('OL694020e357555', 'O694020e35460c', 'P5'),
-('OL69402154574c5', 'O6940215454be5', 'P1'),
-('OL6940215457f0a', 'O6940215454be5', 'P6'),
-('OL694021545830d', 'O6940215454be5', 'P12'),
-('OL69402180291fd', 'O6940218026abf', 'P5'),
-('OL694021ac68334', 'O694021ac67b80', 'P15'),
-('OL694021f89908e', 'O694021f8967e7', 'P10');
+INSERT INTO `order_lists` (`id_OL`, `id_O`, `id_P`, `quantity`) VALUES
+('OL694020e356f03', 'O694020e35460c', 'P1', 1),
+('OL694020e357555', 'O694020e35460c', 'P5', 1),
+('OL69402154574c5', 'O6940215454be5', 'P1', 1),
+('OL6940215457f0a', 'O6940215454be5', 'P6', 1),
+('OL694021545830d', 'O6940215454be5', 'P12', 0),
+('OL69402180291fd', 'O6940218026abf', 'P5', 5),
+('OL694021ac68334', 'O694021ac67b80', 'P15', 3),
+('OL694021f89908e', 'O694021f8967e7', 'P10', 1),
+('OL6940244ad54eb', 'O6940244ad2d2a', 'P22', 1),
+('OL6940247b6063e', 'O6940247b5e230', 'P1', 4),
+('OL6940287530860', 'O694028752e1b5', 'P1', 4),
+('OL694029fc63f93', 'O694029fc61834', 'P1', 1),
+('OL694029fc646eb', 'O694029fc61834', 'P6', 4),
+('OL69402b5a55df5', 'O69402b5a52e48', 'P1', 6),
+('OL69402bedd26fe', 'O69402bedd0052', 'P1', 10),
+('OL69402d2c8e171', 'O69402d2c8b89e', 'P5', 10),
+('OL69402f158abd2', 'O04535715', 'P2', 1),
+('OL69402f30f0900', 'O04542454', 'P5', 1),
+('OL69402f5e78c99', 'O04551018', 'P9', 1),
+('OL69403190c5544', 'O05043250', 'P10', 2);
 
 -- --------------------------------------------------------
 

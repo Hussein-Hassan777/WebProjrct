@@ -23,7 +23,7 @@ if (isset($_POST['confirm'])) {
     $phone   = $_POST['phone'];
     $address = $_POST['address'];
 
-    $order_id = 'O' . uniqid();
+    $order_id = 'O' . date('his').rand(1,100);
 
    
     $conn->query("
@@ -35,10 +35,11 @@ if (isset($_POST['confirm'])) {
     foreach ($_SESSION['cart'] as $product_id => $qty) {
         $id_ol = 'OL' . uniqid();
         $conn->query("
-            INSERT INTO order_lists (id_OL, id_O, id_P)
-            VALUES ('$id_ol', '$order_id', '$product_id')
+            INSERT INTO order_lists (id_OL, id_O, id_P, quantity)
+            VALUES ('$id_ol', '$order_id', '$product_id', $qty)
         ");
     }
+
 
     $_SESSION['cart'] = [];
     echo "<script>alert('Order completed successfully'); location='index.php';</script>";
