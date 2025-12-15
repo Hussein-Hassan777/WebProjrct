@@ -7,8 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = $_POST['password'];  // plain text
-    $role = 'user'; // default role
-
+    $role = 'customer'; // default role
     // Check if email already exists
     $check_sql = "SELECT * FROM users WHERE email='$email'";
     $check_result = $conn->query($check_sql);

@@ -41,7 +41,7 @@ if (!empty($cart)) {
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="images/icons/logo.png" alt="" width="50" height="50" class="rounded-5">
             </a>
 
@@ -53,39 +53,11 @@ if (!empty($cart)) {
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">about us</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            pages
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item text-center" href="#">news</a></li>
-                            <li><a class="dropdown-item text-center" href="#">latest products</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-center" href="login.php">login</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#bestselling">bestselling</a>
-                    </li>
                 </ul>
-                <a class="nav-link text-white d-flex align-items-center" href="mycart.php">
-                    <i class="fa-solid fa-cart-arrow-down me-1"></i>
-                    <span>My Cart</span>
-                </a>
-
             </div>
         </div>
     </nav>

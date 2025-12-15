@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("index_backend.php");
 ?>
 <!DOCTYPE html>
@@ -11,14 +12,13 @@ include("index_backend.php");
     <link rel="stylesheet" href="styles/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>My Market</title>
-    <link rel="icon" href="images/icons/logo.png">
 </head>
 
 <body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="images/icons/logo.png" alt="" width="50" height="50" class="rounded-5">
             </a>
 
@@ -30,7 +30,7 @@ include("index_backend.php");
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">about us</a>
@@ -43,28 +43,80 @@ include("index_backend.php");
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item text-center" href="#">news</a></li>
                             <li><a class="dropdown-item text-center" href="#">latest products</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-center" href="#"
-                                    onclick="window.location.href='login.php'">login</a></li>
+                            <?php if (!isset($_SESSION['id_U'])): ?>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-center" href="login.php">login</a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                     <li class="nav-item">
                         <a class="nav-link" href="#bestselling">bestselling</a>
                     </li>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='mycart.php'>
+                            <div class=" text-white">
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <span>cart</span>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
-
-                <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                    aria-controls="offcanvasExample" onclick="window.location.href='mycart.php'">
-                    <div class="text-white">
-                        <i class="fa-solid fa-cart-arrow-down"></i>
-                        <span>cart</span>
-                    </div>
-                </a>
+                <?php if (isset($_SESSION['id_U'])): ?>
+                    <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                        aria-controls="offcanvasExample">
+                        <div class="text-white">
+                            <div class="icon">
+                                <span><?= $_SESSION['first_name'] ?></span>
+                                <span class="me-2"><?= $_SESSION['last_name'] ?></span>
+                                <img src="<?= $_SESSION['profile_img'] ?>" alt="">
+                            </div>
+                        </div>
+                    </a>
+                <?php else: ?>
+                    <a class="nav-link" href='login.php'>
+                        <div class="text-white">
+                            <span>login</span>
+                        </div>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
+
+    <!-- offconvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <button type="button" class="btn-close ms-auto p-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title w-100 text-center" id="offcanvasExampleLabel">Person Info</h5>
+        </div>
+        <div class="offcanvas-body">
+            <div class="person_info">
+                <p class="img  text-center">
+                    <img src="<?= $_SESSION['profile_img'] ?>" alt="">
+                </p>
+                <p class="name">
+                    <span class="identfier">Name: </span>
+                    <span><?= $_SESSION['first_name'] ?></span>
+                    <span><?= $_SESSION['last_name'] ?></span>
+                </p>
+                <p class="email">
+                    <span class="identfier">Email: </span>
+                    <span><?= $_SESSION['email'] ?></span>
+                </p>
+                <p class="phone">
+                    <span class="identfier">Phone Number: </span>
+                    <span><?= $_SESSION['phone'] ?></span>
+                </p>
+            </div>
+            <div class="edit">
+                <button class="edit_btn" onclick="window.location.href='edit_info.php'">Edit</button>
+            </div>
+        </div>
+    </div>
     <!-- carousel -->
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -81,8 +133,10 @@ include("index_backend.php");
                 <div class="carousel-caption d-none d-md-block rounded-5">
                     <h2>Your Welfare Matters</h2>
                     <p>The Best Marketing Website...Priced in Your Local Currency</p>
-                    <button class="mybtn1" onclick="window.location.href='login.php'">Login!</button>
-                    <button class="mybtn1" onclick="window.location.href='register.php'">register Now!</button>
+                    <?php if (!isset($_SESSION['user_id'])): ?>
+                        <button class="mybtn1" onclick="window.location.href='login.php'">Login!</button>
+                        <button class="mybtn1" onclick="window.location.href='register.php'">register Now!</button>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="carousel-item">
@@ -186,7 +240,8 @@ include("index_backend.php");
         <div class="d-flex justify-content-center">
             <h3>Contact us</h3>
         </div>
-        <p>Feel free to reach out to us anytime. Whether you have a question, need support, or want to know more about
+        <p>Feel free to reach out to us anytime. Whether you have a question, need support, or want to know more
+            about
             our services, our team is here to help. Just send us a message and we'll get back to you as soon as
             possible.</p>
         <div class="input-group mygroup w-50 m-auto">
@@ -196,7 +251,6 @@ include("index_backend.php");
                 aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
     </section>
-
     <!-- Order -->
     <section id="order" class="order  border rounded m-5">
         <div class="container">
@@ -243,7 +297,6 @@ include("index_backend.php");
             </form>
         </div>
     </section>
-
     <!-- bestselling -->
     <section class="bestselling" id="bestselling">
         <div class="container">
@@ -294,7 +347,7 @@ include("index_backend.php");
                                         <button class="bestsellingbtn info" name="info"
                                             value="<?= $rows3[$m]['id_P'] ?>">more info</button>
                                     </form>
-                                    <form action="mycart_backend.php" method="post" style="display: inline;">
+                                    <form action="cartBack.php" method="post" style="display: inline;">
                                         <button class="bestsellingbtn cart" name="cart"
                                             value="<?= $rows3[$m]['id_P'] ?>">add
                                             to cart</button>
@@ -320,7 +373,7 @@ include("index_backend.php");
                                         <button class="bestsellingbtn info" name="info"
                                             value="<?= $rows4[$n]['id_P'] ?>">more info</button>
                                     </form>
-                                    <form action="mycart_backend.php" method="post" style="display: inline;">
+                                    <form action="cartBack.php" method="post" style="display: inline;">
                                         <button class="bestsellingbtn cart" name="cart"
                                             value="<?= $rows4[$n]['id_P'] ?>">add
                                             to cart</button>
@@ -336,7 +389,7 @@ include("index_backend.php");
 
         </div>
     </section>
-
+    <!-- about -->
     <div id="about" class="about">
         <p class="about_text">
         <h4>We're Always Here To Help</h4>

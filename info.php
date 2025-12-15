@@ -43,7 +43,9 @@ $more = mysqli_query($conn, $moreQuery);
 
 <body>
     <div class="navbar">
-        <div class="brand">brand stor</div>
+        <a class="navbar-brand" href="index.php">
+            <img src="images/icons/logo.png" alt="" width="50" height="50" class="rounded-5">
+        </a>
         <div class="nav-links">
             <a href="index.php">Home</a>
             <a href="mycart.php">My Cart</a>

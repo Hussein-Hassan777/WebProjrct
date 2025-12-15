@@ -18,15 +18,22 @@ body {
 
 .navbar {
   background: var(--blue);
-  padding: 15px 30px;
+  padding: 10px 80px;
   display: flex;
   justify-content: space-between;
   color: white;
 }
 
+.nav-links {
+  display: flex;
+  margin: auto 0;
+  width: 100%;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+
 .nav-links a {
   color: white;
-  margin-left: 20px;
   text-decoration: none;
 }
 

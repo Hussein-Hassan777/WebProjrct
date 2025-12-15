@@ -13,9 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        $_SESSION['user_id'] = $row['id'];
-        $_SESSION['user_name'] = $row['full_name'];
+        $_SESSION['id_U'] = $row['id_U'];
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['profile_img'] = $row['profile_img'];
         $_SESSION['role'] = $row['role'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['phone'] = $row['phone'];
 
         if ($row['role'] === 'admin') {
             header("Location:dashbord_html.php");

@@ -18,26 +18,26 @@
         <div id="message" style="margin-bottom:15px;"></div>
 
         <form action="register_backend.php" method="POST">
-           <div class="mb-3">
-            <label>First name</label>
-            <input type="text" name="first_name" class="form-control" placeholder="Enter your First name" required>
-        </div>
-         <div class="mb-3">
-            <label>Last name</label>
-            <input type="text" name="last_name" class="form-control" placeholder="Enter your Last name" required>
-        </div>
-        <div class="mb-3">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
-        </div>
-        <div class="mb-4">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
-        </div>
-        <div class="mb-4">
-            <label>Phone</label>
-            <input type="tel" name="phone" class="form-control" placeholder="Enter your phone number" required>
-        </div>
+            <div class="mb-3">
+                <label>First name</label>
+                <input type="text" name="first_name" class="form-control" placeholder="Enter your First name" required>
+            </div>
+            <div class="mb-3">
+                <label>Last name</label>
+                <input type="text" name="last_name" class="form-control" placeholder="Enter your Last name" required>
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-4">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <div class="mb-4">
+                <label>Phone</label>
+                <input type="tel" name="phone" class="form-control" placeholder="Enter your phone number" required>
+            </div>
             <button type="submit" class="btn-signup btn-primary w-100">Sign up</button>
             <p class="text-center mt-3">
                 Already have an account?

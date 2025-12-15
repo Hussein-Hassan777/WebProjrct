@@ -31,6 +31,42 @@ a:hover {
     color: #000 !important;
 }
 
+.icon img {
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 50% !important;
+}
+
+/* offconvas */
+
+.offcanvas-title {
+    background-color: #1581BF;
+    color: #fff;
+}
+
+.person_info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.person_info .identfier {
+    font-weight: bold;
+    color: #3DB6B1;
+    margin-right: 2px;
+}
+
+.edit {
+    position: relative;
+}
+
+.edit_btn {
+    position: absolute;
+    top: 270px;
+    left: 80px;
+}
+
 /* carousel */
 .carousel {
     height: 70vh;
@@ -70,7 +106,8 @@ a:hover {
 .modal-footer .infobtn,
 .card .cardbtn,
 .contact .contactbutton,
-.form_order button {
+.form_order button,
+.edit_btn {
     border: none;
     background-color: #3DB6B1;
     height: 50px;
@@ -96,7 +133,8 @@ a:hover {
 .modal-footer .infobtn:hover,
 .contact .contactbutton:hover,
 .form_order button:hover,
-.card .cardbtninfo:hover {
+.card .cardbtninfo:hover,
+.edit_btn:hover {
     background-color: #F6B1CE;
     border-radius: 50px;
 }
