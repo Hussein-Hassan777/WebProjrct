@@ -29,7 +29,8 @@ $sql = "
 SELECT 
     o.id_O,
     o.history,
-    o.id_U,
+    o.guest_email,
+    o.guest_phone,
     SUM(p.price) AS total_order
 FROM orders o
 JOIN order_lists ol ON o.id_O = ol.id_O

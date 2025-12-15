@@ -146,7 +146,8 @@
                 <tr>
                     <th>ID Order</th>
                     <th>History</th>
-                    <th>ID Customer</th>
+                    <th>Email Customer</th>
+                    <th>Phone Customer</th>
                     <th>total Orrder</th>
                 </tr>
             </thead>
@@ -155,7 +156,8 @@
                 <tr>
                     <td><?= $o['id_O'] ?></td>
                     <td><?= $o['history'] ?></td>
-                    <td><?= $o['id_U'] ?></td>
+                    <td><?= $o['guest_email'] ?></td>
+                    <td><?= $o['guest_phone'] ?></td>
                    <td><?= number_format($o['total_order'], 2) ?> $</td>
 
                 </tr>
