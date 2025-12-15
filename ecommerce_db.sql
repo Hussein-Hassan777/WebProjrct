@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3307
--- Generation Time: Dec 15, 2025 at 01:20 PM
+-- Host: 127.0.0.1:3307
+-- Generation Time: Dec 15, 2025 at 03:59 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -91,18 +91,23 @@ INSERT INTO `offers` (`id_P`) VALUES
 CREATE TABLE `orders` (
   `id_O` varchar(30) NOT NULL,
   `history` date NOT NULL DEFAULT current_timestamp(),
-  `id_U` int(10) NOT NULL
+  `id_U` int(11) DEFAULT NULL,
+  `guest_email` varchar(100) DEFAULT NULL,
+  `guest_phone` varchar(15) DEFAULT NULL,
+  `guest_address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id_O`, `history`, `id_U`) VALUES
-('O1', '2025-12-08', 1),
-('O2', '2025-12-09', 1),
-('O3', '2025-12-09', 2),
-('O4', '2025-12-09', 3);
+INSERT INTO `orders` (`id_O`, `history`, `id_U`, `guest_email`, `guest_phone`, `guest_address`) VALUES
+('O694020e35460c', '2025-12-15', NULL, 'ali@gmail.com', '01129137281', 'Cairo, Egypt'),
+('O6940215454be5', '2025-12-15', NULL, 'omer@example.com', '01238294723', 'Alexandria, Egypt'),
+('O6940218026abf', '2025-12-15', NULL, 'ibrahim@example.com', '0158927322', 'Alexandria, Egypt'),
+('O694021ac67b80', '2025-12-15', NULL, 'mona@example.com', '01728917211', 'Tanta, Egypt'),
+('O694021f8967e7', '2025-12-15', NULL, 'ali@gmail.com', '01292492482', 'Tanta, Egypt'),
+('O694021f8067e7', '2025-12-15', NULL, 'ali@gmail.com', '01292492482', 'Tanta, Egypt');
 
 -- --------------------------------------------------------
 
@@ -121,9 +126,14 @@ CREATE TABLE `order_lists` (
 --
 
 INSERT INTO `order_lists` (`id_OL`, `id_O`, `id_P`) VALUES
-('OL1', 'O1', 'P1'),
-('OL2', 'O1', 'P2'),
-('OL3', 'O2', 'P2');
+('OL694020e356f03', 'O694020e35460c', 'P1'),
+('OL694020e357555', 'O694020e35460c', 'P5'),
+('OL69402154574c5', 'O6940215454be5', 'P1'),
+('OL6940215457f0a', 'O6940215454be5', 'P6'),
+('OL694021545830d', 'O6940215454be5', 'P12'),
+('OL69402180291fd', 'O6940218026abf', 'P5'),
+('OL694021ac68334', 'O694021ac67b80', 'P15'),
+('OL694021f89908e', 'O694021f8967e7', 'P10');
 
 -- --------------------------------------------------------
 
@@ -145,7 +155,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_P`, `name`, `describtion`, `price`, `brand`, `category`) VALUES
-('P1', 'Oversized Drop-Shoulder T-Shirt', 'purple, Men, RZTTPURP003', 1074.00, 'RZIST', 'Mens T-Shirts'),
+('P1', 'Oversized Drop-Shoulder T-Shirt', 'purple, Men, RZTTPURP003', 1500.00, 'RZIST', 'Mens T-Shirts'),
 ('P10', 'Premium Purple Oversize/Wide Cut Faded E', 'purple, 100% Cotton, Men', 503.00, 'trendyol', 'Mens T-Shirts'),
 ('P11', 'Black Oversize/Wide Cut 100% Cotton Prin', 'black, Men, 100% Cotton', 427.00, 'trendyol', 'Mens T-Shirts'),
 ('P12', 'Black Oversize/Wide Cut Embroidered Text', 'black, Men, 50% Cotton,50% Polyester', 427.00, 'trendyol', 'Mens T-Shirts'),
