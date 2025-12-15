@@ -5,7 +5,7 @@ if (!isset($_SESSION['cart'])) {
 }
 $cart = $_SESSION['cart'];
 $total = 0;
-$conn = mysqli_connect("localhost:3306", "root", "", "ecommerce_db");
+$conn = mysqli_connect("localhost:3307", "root", "", "ecommerce_db");
 if ($conn->connect_error)
     die("Connection failed: " . $conn->connect_error);
 $cart_items = [];
@@ -14,7 +14,7 @@ if (!empty($cart)) {
         $query = "SELECT p.*, i.image_1 FROM products p 
                 LEFT JOIN images i ON p.id_P = i.id_P
                 WHERE p.id_P = '$product_id'";
-                $result = mysqli_query($conn, $query);
+        $result = mysqli_query($conn, $query);
         if ($result->num_rows > 0) {
             $product = $result->fetch_assoc();
             $product['quantity'] = $quantity;
@@ -80,7 +80,7 @@ if (!empty($cart)) {
                     <li class="nav-item">
                         <a class="nav-link" href="index.php#bestselling">bestselling</a>
                     </li>
-                </ul>       
+                </ul>
                 <a class="nav-link text-white d-flex align-items-center" href="mycart.php">
                     <i class="fa-solid fa-cart-arrow-down me-1"></i>
                     <span>My Cart</span>
@@ -104,7 +104,7 @@ if (!empty($cart)) {
                             <div>
                                 <h5 class="item-title"><?= $item['name'] ?></h5>
                                 <p class="item-price">$<?= number_format($item['price'], 2) ?></p>
-                                <div >
+                                <div>
                                     <form action="cartBack.php" method="post" style="display:inline;">
                                         <input type="hidden" name="decrease" value="<?= $item['id_P'] ?>">
                                         <button type="submit" class="qty-btn ">-</button>
@@ -116,12 +116,10 @@ if (!empty($cart)) {
                                     </form>
                                 </div>
                                 <form action="cartBack.php" method="post">
-                                    <button class="remove-btn" name="remove"
-                                        value="<?= $item['id_P'] ?>">Remove</button>
+                                    <button class="remove-btn" name="remove" value="<?= $item['id_P'] ?>">Remove</button>
                                 </form>
-                                <form action="info.php" method="post" >
-                                    <button type="submit" name="info" value="<?= $item['id_P'] ?>"
-                                        class="make-info-btn ">
+                                <form action="info.php" method="post">
+                                    <button type="submit" name="info" value="<?= $item['id_P'] ?>" class="make-info-btn ">
                                         Make Info
                                     </button>
                                 </form>
@@ -158,7 +156,7 @@ if (!empty($cart)) {
             </div>
         </div>
     </div>
-      <div id="about" class="about">
+    <div id="about" class="about">
         <p class="about_text">
         <h4>We're Always Here To Help</h4>
         <p>Reach out to us through any of these support channels</p>
@@ -172,151 +170,157 @@ if (!empty($cart)) {
         2025 Shopping. All Rights Reserved
     </div>
 </body>
+
 </html>
 <style>
-body {
-    font-family: "Poppins", sans-serif;
-            padding-top: 80px; 
+    body {
+        font-family: "Poppins", sans-serif;
+        padding-top: 80px;
 
-}
+    }
 
-.navbar {
-    background-color: #1581BF !important;
-}
+    .navbar {
+        background-color: #1581BF !important;
+    }
 
-.navbar a {
-    color: #fff !important;
-}
+    .navbar a {
+        color: #fff !important;
+    }
 
-.navbar a:hover {
-    color: #3DB6B1 !important;
-}
+    .navbar a:hover {
+        color: #3DB6B1 !important;
+    }
 
-.navbar a img {
-    height: 50px;
-    width: 50px;
-}
+    .navbar a img {
+        height: 50px;
+        width: 50px;
+    }
 
-.nav-link svg {
-    font-size: 20px;
-    right: 0;
-}
-body::selection {
-    background-color: #F6B1CE;
-    color: #fff;
-}
-.cart-item {
-    width: 90%;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
+    .nav-link svg {
+        font-size: 20px;
+        right: 0;
+    }
+
+    body::selection {
+        background-color: #F6B1CE;
+        color: #fff;
+    }
+
+    .cart-item {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
         border-radius: 15px;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: .3s;
-}
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: .3s;
+    }
 
-.cart-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .cart-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 
-}
-.summary-box {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-radius: 15px;
+    }
 
-    transition: .3s;
-}
-.summary-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .summary-box {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
 
-}
+        transition: .3s;
+    }
+
+    .summary-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    }
 
 
 
-.checkout-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #3DB6B1;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: 0.2s ease;
-}
+    .checkout-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #3DB6B1;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        margin-top: 20px;
+        transition: 0.2s ease;
+    }
 
-.checkout-btn:hover {
-    background-color: #F6B1CE;
-    transform: scale(1.05);
+    .checkout-btn:hover {
+        background-color: #F6B1CE;
+        transform: scale(1.05);
 
-}
+    }
 
-.remove-btn {
-    width: 50%;
-    padding: 12px;
-    background-color: #3DB6B1;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: all 0.3s;
+    .remove-btn {
+        width: 50%;
+        padding: 12px;
+        background-color: #3DB6B1;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        margin-top: 20px;
+        transition: all 0.3s;
 
-}
+    }
 
-.remove-btn:hover {
-    background-color: #F6B1CE;
-    transform: scale(1.05);
+    .remove-btn:hover {
+        background-color: #F6B1CE;
+        transform: scale(1.05);
 
-}
+    }
 
-.make-info-btn {
-    width: 50%;
-    padding: 12px;
-    background-color: #3DB6B1;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: all 0.3s;
+    .make-info-btn {
+        width: 50%;
+        padding: 12px;
+        background-color: #3DB6B1;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        margin-top: 20px;
+        transition: all 0.3s;
 
-}
+    }
 
-.make-info-btn:hover {
-    background-color: #F6B1CE;
-    transform: scale(1.05);
+    .make-info-btn:hover {
+        background-color: #F6B1CE;
+        transform: scale(1.05);
 
-}
+    }
 
-.qty-btn {
-    width: 35px;
-    height: 35px;
-    border: none;
-    background-color: #3DB6B1;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    border-radius: 6px;
-    transition: 0.2s ease, transform 0.2s ease;
-}
+    .qty-btn {
+        width: 35px;
+        height: 35px;
+        border: none;
+        background-color: #3DB6B1;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 6px;
+        transition: 0.2s ease, transform 0.2s ease;
+    }
 
-.qty-btn:hover {
-    background-color: #F6B1CE;
-    transform: scale(1.1);
-}
+    .qty-btn:hover {
+        background-color: #F6B1CE;
+        transform: scale(1.1);
+    }
 
-.qty-btn:disabled {
-    background-color: #a0c8c5;
-    cursor: not-allowed;
-    transform: none;
-}
-.text-center{
+    .qty-btn:disabled {
+        background-color: #a0c8c5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .text-center {
         font-size: 45px;
         font-weight: 700;
         letter-spacing: 3px;
@@ -325,26 +329,26 @@ body::selection {
         border-bottom: 3px solid #ff6600;
         padding-bottom: 10px;
         margin-top: 5px;
-}
+    }
 
-.about {
-    background-color: #1581BF;
-    padding: 10px;
-}
+    .about {
+        background-color: #1581BF;
+        padding: 10px;
+    }
 
-.about .about_text {
-    color: #fff;
-    font-weight: bold;
-}
+    .about .about_text {
+        color: #fff;
+        font-weight: bold;
+    }
 
-.about img {
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-}
+    .about img {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+    }
 
-.about .social-icon {
-    font-size: 20px;
-    color: #fff;
-}
-    </style>
+    .about .social-icon {
+        font-size: 20px;
+        color: #fff;
+    }
+</style>
