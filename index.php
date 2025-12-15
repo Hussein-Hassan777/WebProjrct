@@ -21,7 +21,6 @@ include("index_backend.php");
             <a class="navbar-brand" href="index.php">
                 <img src="images/icons/logo.png" alt="" width="50" height="50" class="rounded-5">
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -133,7 +132,7 @@ include("index_backend.php");
                 <div class="carousel-caption d-none d-md-block rounded-5">
                     <h2>Your Welfare Matters</h2>
                     <p>The Best Marketing Website...Priced in Your Local Currency</p>
-                    <?php if (!isset($_SESSION['user_id'])): ?>
+                    <?php if (!isset($_SESSION['id_U'])): ?>
                         <button class="mybtn1" onclick="window.location.href='login.php'">Login!</button>
                         <button class="mybtn1" onclick="window.location.href='register.php'">register Now!</button>
                     <?php endif; ?>
