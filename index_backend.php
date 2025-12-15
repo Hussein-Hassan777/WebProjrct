@@ -4,7 +4,7 @@ $host = "localhost:3307";
 $user = "root";
 $pass = "";
 $db = "ecommerce_db";
-$conn = mysqli_connect($host, $user, $pass, $db);
+$conn = mysqli_connect("localhost:3307", $user, $pass, $db);
 $query = "SELECT p.name, p.price, i.image_1, i.image_2, i.image_3, p.id_P from products p, images i where i.id_P=p.id_P";
 $result = mysqli_query($conn, $query);
 $rows = [];
