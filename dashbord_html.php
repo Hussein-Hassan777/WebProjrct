@@ -11,7 +11,7 @@
 <body>
 <div class="container-fluid py-4">
 
-        <!-- ===== CARDS ===== -->
+    <!-- ===== CARDS ===== -->
         <div class="row mb-4">
         <div class="col-md-6 mb-3">
             <div class="card text-white bg-primary h-100">
@@ -44,27 +44,28 @@
             <div class="card text-white bg-danger h-100">
                 <div class="card-body">
                     <h5 class="card-title">Total</h5>
-                    <p class="card-text fs-3"><?= number_format($total_sales, 2) ?> EGP</p>
+                    <p class="card-text fs-3"><?= number_format($total_sales, 2) ?> $</p>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!-- ===== BUTTONS ===== -->
-    <div class="mb-4 d-flex flex-wrap gap-4">
-        <a href="admin_html.php" class="btn btn-primary">➕ Add Products</a>
+<!-- ===== BUTTONS ===== -->
+    <div class="buttons-container">
+        <a href="admin_html.php" class="btn btn-primary"> Add Products</a>
         <a href="index.php" class="btn btn-secondary">Home</a>
     </div>
 
-    <!-- ===== TABS ===== -->
+
+<!-- ===== TABS ===== -->
     <ul class="nav nav-tabs mb-3">
         <li class="nav-item"><a class="nav-link active" href="#" onclick="showTab('products')">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('customers')">Customers</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('customers')">Users</a></li>
         <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('order')">Order</a></li>
     </ul>
 
-    <!-- ===== PRODUCTS TABLE ===== -->
+<!-- ===== PRODUCTS TABLE ===== -->
     <div id="products" class="tab-content">
         <table class="table table-striped table-hover">
             <thead class="table-dark">
@@ -113,7 +114,7 @@
         </table>
     </div>
 
-    <!-- ===== CUSTOMERS TABLE ===== -->
+<!-- ===== CUSTOMERS TABLE ===== -->
     <div id="customers" class="tab-content" style="display:none;">
         <table class="table table-striped table-hover">
             <thead class="table-dark">
@@ -139,7 +140,7 @@
         </table>
     </div>
 
-        <div id="order" class="tab-content" style="display:none;">
+    <div id="order" class="tab-content" style="display:none;">
         <table class="table table-striped table-hover">
             <thead class="table-dark">
                 <tr>
@@ -155,7 +156,7 @@
                     <td><?= $o['id_O'] ?></td>
                     <td><?= $o['history'] ?></td>
                     <td><?= $o['id_U'] ?></td>
-                   <td><?= number_format($o['total_order'], 2) ?> EGP</td>
+                   <td><?= number_format($o['total_order'], 2) ?> $</td>
 
                 </tr>
             <?php endforeach; ?>

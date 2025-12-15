@@ -7,7 +7,6 @@ $result = mysqli_query($conn, "SELECT * FROM products");
 if ($result && mysqli_num_rows($result) > 0) {
     $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-
 $count_result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM products");
 $count_row = mysqli_fetch_assoc($count_result);
 $total_products = $count_row['total'];
@@ -19,7 +18,6 @@ $result2 = mysqli_query($conn, "SELECT * FROM users");
 if ($result2 && mysqli_num_rows($result2) > 0) {
     $users = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 }
-
 $count_res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users");
 $count_row2 = mysqli_fetch_assoc($count_res);
 $total_users = $count_row2['total'];
@@ -38,12 +36,10 @@ JOIN order_lists ol ON o.id_O = ol.id_O
 JOIN products p ON ol.id_P = p.id_P
 GROUP BY o.id_O, o.history, o.id_U
 ";
-
 $result = mysqli_query($conn, $sql);
 if ($result && mysqli_num_rows($result) > 0) {
     $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-
 
 // Orders Count 
 $order_count_result = mysqli_query($conn, "SELECT COUNT(*) AS total_orders FROM orders");
