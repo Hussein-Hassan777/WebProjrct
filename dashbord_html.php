@@ -148,8 +148,9 @@
                     <th>History</th>
                     <th>Email Customer</th>
                     <th>Phone Customer</th>
-                    <th>total Orrder</th>
                     <th>Address</th>
+                    <th>total Orrder</th>
+                    
                 </tr>
             </thead>
             <tbody>
