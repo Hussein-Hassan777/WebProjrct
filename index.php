@@ -11,6 +11,7 @@ include("index_backend.php");
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="images/icons/logo.png">
     <title>My Market</title>
 </head>
 

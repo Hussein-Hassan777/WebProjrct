@@ -33,7 +33,8 @@ if (!empty($cart)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cart</title>
     <link rel="shortcut icon" href="images/icons/nmt2ien6snbvvd91bedf19i52s.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -145,7 +146,7 @@ if (!empty($cart)) {
 </html>
 <style>
     body {
-        font-family:  sans-serif;
+        font-family: sans-serif;
         padding-top: 80px;
 
     }
@@ -218,7 +219,7 @@ if (!empty($cart)) {
         border-radius: 8px;
         font-weight: 600;
         margin-top: 20px;
-        transition: 0.3s ;
+        transition: 0.3s;
     }
 
     .checkout-btn:hover {
@@ -274,7 +275,7 @@ if (!empty($cart)) {
         font-weight: bold;
         font-size: 18px;
         border-radius: 6px;
-        transition: 0.3s ;
+        transition: 0.3s;
     }
 
     .qty-btn:hover {
