@@ -7,7 +7,6 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     exit;
 }
 
-
 $total = 0;
 foreach ($_SESSION['cart'] as $product_id => $qty) {
     $res = $conn->query("SELECT price FROM products WHERE id_P='$product_id'");
@@ -16,22 +15,23 @@ foreach ($_SESSION['cart'] as $product_id => $qty) {
     }
 }
 
+$id_U = $_SESSION['id_U'] ?? NULL;
+$email = $_POST['email'] ?? $_SESSION['email'] ?? NULL;
+$phone = $_POST['phone'] ?? $_SESSION['phone'] ?? NULL;
+$address = $_POST['address'] ?? NULL;
 
 if (isset($_POST['confirm'])) {
 
-    $email   = $_POST['email'];
-    $phone   = $_POST['phone'];
-    $address = $_POST['address'];
+    $order_id = 'O' . date('his') . rand(1,100);
 
-    $order_id = 'O' . date('his').rand(1,100);
-
-   
     $conn->query("
         INSERT INTO orders (id_O, history, id_U, guest_email, guest_phone, guest_address)
-        VALUES ('$order_id', NOW(), NULL, '$email', '$phone', '$address')
+        VALUES ('$order_id', NOW(), ".($id_U ? "'$id_U'" : "NULL").",
+                ".($email ? "'$email'" : "NULL").",
+                ".($phone ? "'$phone'" : "NULL").",
+                ".($address ? "'$address'" : "NULL").")
     ");
 
-    
     foreach ($_SESSION['cart'] as $product_id => $qty) {
         $id_ol = 'OL' . uniqid();
         $conn->query("
@@ -39,7 +39,6 @@ if (isset($_POST['confirm'])) {
             VALUES ('$id_ol', '$order_id', '$product_id', $qty)
         ");
     }
-
 
     $_SESSION['cart'] = [];
     echo "<script>alert('Order completed successfully'); location='index.php';</script>";
@@ -51,7 +50,7 @@ if (isset($_POST['confirm'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guest Checkout</title>
+    <title>Checkout</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -61,7 +60,7 @@ if (isset($_POST['confirm'])) {
         <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-header bg-dark text-white">
-                    <h5 class="mb-0">Guest Checkout</h5>
+                    <h5 class="mb-0">Checkout</h5>
                 </div>
                 <div class="card-body">
 
@@ -70,12 +69,14 @@ if (isset($_POST['confirm'])) {
                     <form method="post">
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" required>
+                            <input type="email" name="email" class="form-control" 
+                                   value="<?= htmlspecialchars($email) ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Phone</label>
-                            <input type="text" name="phone" class="form-control" required>
+                            <input type="text" name="phone" class="form-control" 
+                                   value="<?= htmlspecialchars($phone) ?>" required>
                         </div>
 
                         <div class="mb-3">
