@@ -5,7 +5,7 @@ if (!isset($_SESSION['cart'])) {
 }
 $cart = $_SESSION['cart'];
 $total = 0;
-$conn = mysqli_connect("localhost:3307", "root", "", "ecommerce_db");
+$conn = mysqli_connect("localhost:3306", "root", "", "ecommerce_db");
 if ($conn->connect_error)
     die("Connection failed: " . $conn->connect_error);
 $cart_items = [];
@@ -42,9 +42,8 @@ if (!empty($cart)) {
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="images/icons/logo.png" alt="" width="50" height="50" class="rounded-5">
+                <img src="images/icons/logo.png">
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -55,13 +54,13 @@ if (!empty($cart)) {
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link " href="index.php">Home</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    </nav>
+
     <div class="container ">
         <h1 class="text-center">
             MY CART
@@ -146,7 +145,7 @@ if (!empty($cart)) {
 </html>
 <style>
     body {
-        font-family: "Poppins", sans-serif;
+        font-family:  sans-serif;
         padding-top: 80px;
 
     }
@@ -179,35 +178,32 @@ if (!empty($cart)) {
     }
 
     .cart-item {
-        width: 90%;
+        width: 70%;
         margin: 20px auto;
-        padding: 20px;
+        padding: 15px;
         background: #fff;
-        border-radius: 15px;
-
+        border-radius: 45px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         display: flex;
-        align-items: center;
         gap: 20px;
         transition: .3s;
     }
 
     .cart-item:hover {
         transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 
     }
 
     .summary-box {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         border-radius: 15px;
-
         transition: .3s;
     }
 
     .summary-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 
     }
 
@@ -222,7 +218,7 @@ if (!empty($cart)) {
         border-radius: 8px;
         font-weight: 600;
         margin-top: 20px;
-        transition: 0.2s ease;
+        transition: 0.3s ;
     }
 
     .checkout-btn:hover {
@@ -232,7 +228,7 @@ if (!empty($cart)) {
     }
 
     .remove-btn {
-        width: 50%;
+        width: 90%;
         padding: 12px;
         background-color: #3DB6B1;
         color: white;
@@ -240,7 +236,7 @@ if (!empty($cart)) {
         border-radius: 8px;
         font-weight: 600;
         margin-top: 20px;
-        transition: all 0.3s;
+        transition: 0.3s;
 
     }
 
@@ -251,7 +247,7 @@ if (!empty($cart)) {
     }
 
     .make-info-btn {
-        width: 50%;
+        width: 90%;
         padding: 12px;
         background-color: #3DB6B1;
         color: white;
@@ -278,17 +274,16 @@ if (!empty($cart)) {
         font-weight: bold;
         font-size: 18px;
         border-radius: 6px;
-        transition: 0.2s ease, transform 0.2s ease;
+        transition: 0.3s ;
     }
 
     .qty-btn:hover {
         background-color: #F6B1CE;
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
     .qty-btn:disabled {
         background-color: #a0c8c5;
-        cursor: not-allowed;
         transform: none;
     }
 
@@ -297,7 +292,6 @@ if (!empty($cart)) {
         font-weight: 700;
         letter-spacing: 3px;
         color: #333;
-        text-transform: uppercase;
         border-bottom: 3px solid #ff6600;
         padding-bottom: 10px;
         margin-top: 5px;
@@ -308,7 +302,7 @@ if (!empty($cart)) {
         padding: 10px;
     }
 
-    .about .about_text {
+    .about_text {
         color: #fff;
         font-weight: bold;
     }
