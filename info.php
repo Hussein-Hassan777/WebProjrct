@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost:3306", "root", "", "ecommerce_db");
+$conn = mysqli_connect("localhost:3307", "root", "", "ecommerce_db");
 if (!$conn) {
     die(mysqli_connect_error());
 }
