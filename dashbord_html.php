@@ -12,7 +12,7 @@
 <div class="container-fluid py-4">
 
     <!-- ===== CARDS ===== -->
-        <div class="row mb-4">
+    <div class="row mb-4">
         <div class="col-md-6 mb-3">
             <div class="card text-white bg-primary h-100">
                 <div class="card-body">
@@ -43,7 +43,7 @@
         <div class="col-md-6 mb-3">
             <div class="card text-white bg-danger h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Total</h5>
+                    <h5 class="card-title">Total Sales</h5>
                     <p class="card-text fs-3"><?= number_format($total_sales, 2) ?> $</p>
                 </div>
             </div>
@@ -146,8 +146,11 @@
                 <tr>
                     <th>ID Order</th>
                     <th>History</th>
-                    <th>ID Customer</th>
+                    <th>Email Customer</th>
+                    <th>Phone Customer</th>
+                    <th>Address</th>
                     <th>total Orrder</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -155,7 +158,9 @@
                 <tr>
                     <td><?= $o['id_O'] ?></td>
                     <td><?= $o['history'] ?></td>
-                    <td><?= $o['id_U'] ?></td>
+                    <td><?= $o['guest_email'] ?></td>
+                    <td><?= $o['guest_phone'] ?></td>
+                    <td><?= $o['guest_address'] ?></td>
                    <td><?= number_format($o['total_order'], 2) ?> $</td>
 
                 </tr>
