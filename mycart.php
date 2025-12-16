@@ -5,7 +5,7 @@ if (!isset($_SESSION['cart'])) {
 }
 $cart = $_SESSION['cart'];
 $total = 0;
-$conn = mysqli_connect("localhost:3307", "root", "", "ecommerce_db");
+$conn = mysqli_connect("localhost:3306", "root", "", "ecommerce_db");
 if ($conn->connect_error)
     die("Connection failed: " . $conn->connect_error);
 $cart_items = [];
