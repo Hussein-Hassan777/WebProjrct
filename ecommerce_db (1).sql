@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Dec 15, 2025 at 01:20 PM
+-- Generation Time: Dec 16, 2025 at 06:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `images` (
-  `id_P` varchar(30) NOT NULL,
+  `id_P` int(30) NOT NULL,
   `image_1` varchar(200) NOT NULL,
   `image_2` varchar(200) NOT NULL,
   `image_3` varchar(200) NOT NULL
@@ -39,29 +39,29 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id_P`, `image_1`, `image_2`, `image_3`) VALUES
-('P1', 'images/cards/card1/img1.avif', 'images/cards/card1/img2.avif', 'images/cards/card1/img3.avif'),
-('P2', 'images/cards/card2/img1.avif', 'images/cards/card2/img2.avif', 'images/cards/card2/img3.avif'),
-('P3', 'images/cards/card3/img1.avif', 'images/cards/card3/img2.avif', 'images/cards/card3/img3.avif'),
-('P4', 'images/cards/card4/img1.avif', 'images/cards/card4/img2.avif', 'images/cards/card4/img3.avif'),
-('P5', 'images/cards/card5/img1.avif', 'images/cards/card5/img2.avif', 'images/cards/card5/img3.avif'),
-('P6', 'images/cards/card6/img1.avif', 'images/cards/card6/img2.avif', 'images/cards/card6/img3.avif'),
-('P7', 'images/cards/card7/img1.avif', 'images/cards/card7/img2.avif', 'images/cards/card7/img3.avif'),
-('P8', 'images/cards/card8/img1.avif', 'images/cards/card8/img2.avif', 'images/cards/card8/img3.avif'),
-('P9', 'images/cards/card9/img1.avif', 'images/cards/card9/img2.avif', 'images/cards/card9/img3.avif'),
-('P10', 'images/cards/card10/img1.avif', 'images/cards/card10/img2.avif', 'images/cards/card10/img3.avif'),
-('P12', 'images/cards/card12/img1.avif', 'images/cards/card12/img2.avif', 'images/cards/card12/img3.avif'),
-('P11', 'images/cards/card11/img1.avif', 'images/cards/card11/img2.avif', 'images/cards/card11/img3.avif'),
-('P13', 'images/cards/card13/img1.avif', 'images/cards/card13/img2.avif', 'images/cards/card13/img3.avif'),
-('P14', 'images/cards/card14/img1.avif', 'images/cards/card14/img2.avif', 'images/cards/card14/img3.avif'),
-('P15', 'images/cards/card15/img1.avif', 'images/cards/card15/img2.avif', 'images/cards/card15/img3.avif'),
-('P16', 'images/cards/card16/img1.avif', 'images/cards/card16/img2.avif', 'images/cards/card16/img3.avif'),
-('P17', 'images/cards/card17/img1.avif', 'images/cards/card17/img2.avif', 'images/cards/card17/img3.avif'),
-('P18', 'images/cards/card18/img1.avif', 'images/cards/card18/img2.avif', 'images/cards/card18/img3.avif'),
-('P19', 'images/cards/card19/img1.avif', 'images/cards/card19/img2.avif', 'images/cards/card19/img3.avif'),
-('P20', 'images/cards/card20/img1.avif', 'images/cards/card20/img2.avif', 'images/cards/card20/img3.avif'),
-('P21', 'images/cards/card21/img1.avif', 'images/cards/card21/img2.avif', 'images/cards/card21/img3.avif'),
-('P22', 'images/cards/card22/img1.avif', 'images/cards/card22/img2.avif', 'images/cards/card22/img3.avif'),
-('P23', 'images/cards/card23/img1.avif', 'images/cards/card23/img2.avif', 'images/cards/card23/img3.avif');
+(1, 'images/cards/card1/img1.avif', 'images/cards/card1/img2.avif', 'images/cards/card1/img3.avif'),
+(2, 'images/cards/card2/img1.avif', 'images/cards/card2/img2.avif', 'images/cards/card2/img3.avif'),
+(3, 'images/cards/card3/img1.avif', 'images/cards/card3/img2.avif', 'images/cards/card3/img3.avif'),
+(4, 'images/cards/card4/img1.avif', 'images/cards/card4/img2.avif', 'images/cards/card4/img3.avif'),
+(5, 'images/cards/card5/img1.avif', 'images/cards/card5/img2.avif', 'images/cards/card5/img3.avif'),
+(6, 'images/cards/card6/img1.avif', 'images/cards/card6/img2.avif', 'images/cards/card6/img3.avif'),
+(7, 'images/cards/card7/img1.avif', 'images/cards/card7/img2.avif', 'images/cards/card7/img3.avif'),
+(8, 'images/cards/card8/img1.avif', 'images/cards/card8/img2.avif', 'images/cards/card8/img3.avif'),
+(9, 'images/cards/card9/img1.avif', 'images/cards/card9/img2.avif', 'images/cards/card9/img3.avif'),
+(10, 'images/cards/card10/img1.avif', 'images/cards/card10/img2.avif', 'images/cards/card10/img3.avif'),
+(12, 'images/cards/card12/img1.avif', 'images/cards/card12/img2.avif', 'images/cards/card12/img3.avif'),
+(11, 'images/cards/card11/img1.avif', 'images/cards/card11/img2.avif', 'images/cards/card11/img3.avif'),
+(13, 'images/cards/card13/img1.avif', 'images/cards/card13/img2.avif', 'images/cards/card13/img3.avif'),
+(14, 'images/cards/card14/img1.avif', 'images/cards/card14/img2.avif', 'images/cards/card14/img3.avif'),
+(15, 'images/cards/card15/img1.avif', 'images/cards/card15/img2.avif', 'images/cards/card15/img3.avif'),
+(16, 'images/cards/card16/img1.avif', 'images/cards/card16/img2.avif', 'images/cards/card16/img3.avif'),
+(17, 'images/cards/card17/img1.avif', 'images/cards/card17/img2.avif', 'images/cards/card17/img3.avif'),
+(18, 'images/cards/card18/img1.avif', 'images/cards/card18/img2.avif', 'images/cards/card18/img3.avif'),
+(19, 'images/cards/card19/img1.avif', 'images/cards/card19/img2.avif', 'images/cards/card19/img3.avif'),
+(20, 'images/cards/card20/img1.avif', 'images/cards/card20/img2.avif', 'images/cards/card20/img3.avif'),
+(21, 'images/cards/card21/img1.avif', 'images/cards/card21/img2.avif', 'images/cards/card21/img3.avif'),
+(22, 'images/cards/card22/img1.avif', 'images/cards/card22/img2.avif', 'images/cards/card22/img3.avif'),
+(23, 'images/cards/card23/img1.avif', 'images/cards/card23/img2.avif', 'images/cards/card23/img3.avif');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ INSERT INTO `images` (`id_P`, `image_1`, `image_2`, `image_3`) VALUES
 --
 
 CREATE TABLE `offers` (
-  `id_P` varchar(30) NOT NULL
+  `id_P` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -78,9 +78,9 @@ CREATE TABLE `offers` (
 --
 
 INSERT INTO `offers` (`id_P`) VALUES
-('P21'),
-('P22'),
-('P23');
+(21),
+(22),
+(23);
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ INSERT INTO `offers` (`id_P`) VALUES
 --
 
 CREATE TABLE `orders` (
-  `id_O` varchar(30) NOT NULL,
+  `id_O` int(30) NOT NULL,
   `history` date NOT NULL DEFAULT current_timestamp(),
   `id_U` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -99,10 +99,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id_O`, `history`, `id_U`) VALUES
-('O1', '2025-12-08', 1),
-('O2', '2025-12-09', 1),
-('O3', '2025-12-09', 2),
-('O4', '2025-12-09', 3);
+(1, '2025-12-08', 1),
+(2, '2025-12-09', 1),
+(3, '2025-12-09', 2),
+(4, '2025-12-09', 3);
 
 -- --------------------------------------------------------
 
@@ -111,9 +111,9 @@ INSERT INTO `orders` (`id_O`, `history`, `id_U`) VALUES
 --
 
 CREATE TABLE `order_lists` (
-  `id_OL` varchar(30) NOT NULL,
-  `id_O` varchar(30) NOT NULL,
-  `id_P` varchar(30) NOT NULL
+  `id_OL` int(30) NOT NULL,
+  `id_O` int(30) NOT NULL,
+  `id_P` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -121,9 +121,9 @@ CREATE TABLE `order_lists` (
 --
 
 INSERT INTO `order_lists` (`id_OL`, `id_O`, `id_P`) VALUES
-('OL1', 'O1', 'P1'),
-('OL2', 'O1', 'P2'),
-('OL3', 'O2', 'P2');
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,7 @@ INSERT INTO `order_lists` (`id_OL`, `id_O`, `id_P`) VALUES
 --
 
 CREATE TABLE `products` (
-  `id_P` varchar(20) NOT NULL,
+  `id_P` int(20) NOT NULL,
   `name` varchar(40) NOT NULL,
   `describtion` varchar(150) NOT NULL,
   `price` decimal(15,2) NOT NULL,
@@ -145,29 +145,29 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_P`, `name`, `describtion`, `price`, `brand`, `category`) VALUES
-('P1', 'Oversized Drop-Shoulder T-Shirt', 'purple, Men, RZTTPURP003', 1074.00, 'RZIST', 'Mens T-Shirts'),
-('P10', 'Premium Purple Oversize/Wide Cut Faded E', 'purple, 100% Cotton, Men', 503.00, 'trendyol', 'Mens T-Shirts'),
-('P11', 'Black Oversize/Wide Cut 100% Cotton Prin', 'black, Men, 100% Cotton', 427.00, 'trendyol', 'Mens T-Shirts'),
-('P12', 'Black Oversize/Wide Cut Embroidered Text', 'black, Men, 50% Cotton,50% Polyester', 427.00, 'trendyol', 'Mens T-Shirts'),
-('P13', 'Playground Printed Oversized Tee', 'Cream, made in Egypt, Unisex, Cotton', 623.00, 'In Your Shoe', 'Womens T-shirts'),
-('P14', 'White Basic Mens Crew Neck Oversize Shor', 'white, made in Turkey, Men', 1099.00, 'trendyol', 'Mens T-Shirts'),
-('P15', 'Black Oversize/Wide Cut 100% Cotton Thic', 'black, 100% Cotton, Men', 400.00, 'trendyol', 'Mens T-Shirts'),
-('P16', 'Indigo Oversize/Wide Cut Short Sleeve Di', 'blue, 100% Cotton, Men', 389.00, 'trendyol', 'Mens T-Shirts'),
-('P17', 'Indigo Oversize/Wide Cut Textured Knitte', 'indigo, Men', 649.00, 'trendyol', 'Mens T-Shirts'),
-('P18', 'Anthracite Oversize/Wide Cut Crew Neck L', 'Anthracite, 100% Cotton, Men', 516.00, 'Trendyol Man', 'Mens T-Shirts'),
-('P19', 'Black Unisex Oversize/Wide Cut Lobster P', 'black, 100% Cotton, Men', 363.00, 'trendyol', 'Mens T-Shirts'),
-('P2', 'stone Oversize/Wide Cut Textured Polo Ne', 'Stone, 73% Cotton, 22% Polyester, 5% Elastane, ', 665.00, 'trendyol', 'Mens T-Shirts'),
-('P20', 'Ecru Oversize 100% Cotton Minimal Text P', 'Cotton, Men, Ecru, made in Turkey', 1099.00, 'trendyol', 'Mens T-Shirts'),
-('P21', 'Light Grey Oversize Fit Open Collar Summ', 'Light grey, Men, 100% Polyester', 537.00, 'trendyol', 'Mens T-Shirts'),
-('P22', 'Ecru Oversize/Wide Cut Back Panda Printe', 'ecru, 100% Cotton, Men', 496.00, 'Trendyol Man', 'Mens T-Shirts'),
-('P23', 'Ecru Oversize 100% Cotton Anime Printed ', 'ecru, Men, 100% Cotton', 377.00, 'trendyol', 'Mens T-Shirts'),
-('P3', 'City Limits Printed Oversized Tee', 'Black, made in Egypt, Unisex, Cotton ', 598.00, 'In Your Shoe', 'Womens T-shirts'),
-('P4', 'Navy Oversized T-shirt', 'Navy, Unisex', 279.00, 'Airclo', 'Womens T-shirts'),
-('P5', 'AE Oversized Logo Graphic T-Shirt', 'Dusted slate, Pakistan, Men', 1000.00, 'American Eagle', 'Mens T-Shirts'),
-('P6', 'AE Oversized Logo Graphic T-Shirt', 'Men, Pakistan', 1000.00, 'American Eagle', 'Mens T-Shirts'),
-('P7', 'Black Oversize/Wide Cut Printed Thick 10', 'black, Men, 100% Cotton, Men', 384.00, 'trendyol', 'Mens T-Shirts'),
-('P8', 'Brown Oversize/Wide Cut 100% Cotton Shor', 'brown, 100% Cotton, Men', 444.00, 'trendyol', 'Mens T-Shirts'),
-('P9', 'Ecru Oversize/Wide Textured Cut T-shirt', 'ecru, 98% Polyester,2% Elastane, Men', 427.00, 'trendyol', 'Mens T-Shirts');
+(1, 'Oversized Drop-Shoulder T-Shirt', 'purple, Men, RZTTPURP003', 1074.00, 'RZIST', 'Mens T-Shirts'),
+(2, 'stone Oversize/Wide Cut Textured Polo Ne', 'Stone, 73% Cotton, 22% Polyester, 5% Elastane, ', 665.00, 'trendyol', 'Mens T-Shirts'),
+(3, 'City Limits Printed Oversized Tee', 'Black, made in Egypt, Unisex, Cotton ', 598.00, 'In Your Shoe', 'Womens T-shirts'),
+(4, 'Navy Oversized T-shirt', 'Navy, Unisex', 279.00, 'Airclo', 'Womens T-shirts'),
+(5, 'AE Oversized Logo Graphic T-Shirt', 'Dusted slate, Pakistan, Men', 1000.00, 'American Eagle', 'Mens T-Shirts'),
+(6, 'AE Oversized Logo Graphic T-Shirt', 'Men, Pakistan', 1000.00, 'American Eagle', 'Mens T-Shirts'),
+(7, 'Black Oversize/Wide Cut Printed Thick 10', 'black, Men, 100% Cotton, Men', 384.00, 'trendyol', 'Mens T-Shirts'),
+(8, 'Brown Oversize/Wide Cut 100% Cotton Shor', 'brown, 100% Cotton, Men', 444.00, 'trendyol', 'Mens T-Shirts'),
+(9, 'Ecru Oversize/Wide Textured Cut T-shirt', 'ecru, 98% Polyester,2% Elastane, Men', 427.00, 'trendyol', 'Mens T-Shirts'),
+(10, 'Premium Purple Oversize/Wide Cut Faded E', 'purple, 100% Cotton, Men', 503.00, 'trendyol', 'Mens T-Shirts'),
+(11, 'Black Oversize/Wide Cut 100% Cotton Prin', 'black, Men, 100% Cotton', 427.00, 'trendyol', 'Mens T-Shirts'),
+(12, 'Black Oversize/Wide Cut Embroidered Text', 'black, Men, 50% Cotton,50% Polyester', 427.00, 'trendyol', 'Mens T-Shirts'),
+(13, 'Playground Printed Oversized Tee', 'Cream, made in Egypt, Unisex, Cotton', 623.00, 'In Your Shoe', 'Womens T-shirts'),
+(14, 'White Basic Mens Crew Neck Oversize Shor', 'white, made in Turkey, Men', 1099.00, 'trendyol', 'Mens T-Shirts'),
+(15, 'Black Oversize/Wide Cut 100% Cotton Thic', 'black, 100% Cotton, Men', 400.00, 'trendyol', 'Mens T-Shirts'),
+(16, 'Indigo Oversize/Wide Cut Short Sleeve Di', 'blue, 100% Cotton, Men', 389.00, 'trendyol', 'Mens T-Shirts'),
+(17, 'Indigo Oversize/Wide Cut Textured Knitte', 'indigo, Men', 649.00, 'trendyol', 'Mens T-Shirts'),
+(18, 'Anthracite Oversize/Wide Cut Crew Neck L', 'Anthracite, 100% Cotton, Men', 516.00, 'Trendyol Man', 'Mens T-Shirts'),
+(19, 'Black Unisex Oversize/Wide Cut Lobster P', 'black, 100% Cotton, Men', 363.00, 'trendyol', 'Mens T-Shirts'),
+(20, 'Ecru Oversize 100% Cotton Minimal Text P', 'Cotton, Men, Ecru, made in Turkey', 1099.00, 'trendyol', 'Mens T-Shirts'),
+(21, 'Light Grey Oversize Fit Open Collar Summ', 'Light grey, Men, 100% Polyester', 537.00, 'trendyol', 'Mens T-Shirts'),
+(22, 'Ecru Oversize/Wide Cut Back Panda Printe', 'ecru, 100% Cotton, Men', 496.00, 'Trendyol Man', 'Mens T-Shirts'),
+(23, 'Ecru Oversize 100% Cotton Anime Printed ', 'ecru, Men, 100% Cotton', 377.00, 'trendyol', 'Mens T-Shirts');
 
 -- --------------------------------------------------------
 
@@ -198,7 +198,7 @@ INSERT INTO `special_order` (`name`, `email`, `phone_number`, `message_title`, `
 --
 
 CREATE TABLE `the_most_rating` (
-  `id_P` varchar(30) NOT NULL
+  `id_P` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -206,9 +206,9 @@ CREATE TABLE `the_most_rating` (
 --
 
 INSERT INTO `the_most_rating` (`id_P`) VALUES
-('P16'),
-('P17'),
-('P18');
+(16),
+(17),
+(18);
 
 -- --------------------------------------------------------
 
@@ -217,7 +217,7 @@ INSERT INTO `the_most_rating` (`id_P`) VALUES
 --
 
 CREATE TABLE `the_most_selling` (
-  `id_P` varchar(30) NOT NULL
+  `id_P` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -225,8 +225,8 @@ CREATE TABLE `the_most_selling` (
 --
 
 INSERT INTO `the_most_selling` (`id_P`) VALUES
-('P19'),
-('P20');
+(19),
+(20);
 
 -- --------------------------------------------------------
 
@@ -318,6 +318,24 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id_O` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `order_lists`
+--
+ALTER TABLE `order_lists`
+  MODIFY `id_OL` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id_P` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
