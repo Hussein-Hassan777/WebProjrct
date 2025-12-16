@@ -12,7 +12,7 @@
 <div class="container-fluid py-4">
 
     <!-- ===== CARDS ===== -->
-        <div class="row mb-4">
+    <div class="row mb-4">
         <div class="col-md-6 mb-3">
             <div class="card text-white bg-primary h-100">
                 <div class="card-body">

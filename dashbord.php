@@ -34,7 +34,8 @@ SELECT
 FROM orders o
 JOIN order_lists ol ON o.id_O = ol.id_O
 JOIN products p ON ol.id_P = p.id_P
-GROUP BY o.id_O, o.history, o.id_U, o.guest_email, o.guest_phone
+GROUP BY o.id_O
+ORDER BY o.history DESC
 ";
 $result = mysqli_query($conn, $sql);
 if ($result && mysqli_num_rows($result) > 0) {
@@ -46,7 +47,7 @@ $order_count_result = mysqli_query($conn, "SELECT COUNT(*) AS total_orders FROM 
 $order_count_row = mysqli_fetch_assoc($order_count_result);
 $total_orders = $order_count_row['total_orders'];
 
-// Total Sales (with quantity)
+// Total Sales
 $total_sales_result = mysqli_query($conn, "
     SELECT SUM(p.price * ol.quantity) AS total_sales
     FROM order_lists ol
