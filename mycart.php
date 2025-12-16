@@ -36,7 +36,6 @@ if (!empty($cart)) {
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="images/icons/logo.png" type="image/x-icon">
     <title>My Cart</title>
-
 </head>
 
 <body>
@@ -147,7 +146,7 @@ if (!empty($cart)) {
 </html>
 <style>
     body {
-        font-family:  sans-serif;
+        font-family: sans-serif;
         padding-top: 80px;
 
     }
@@ -220,7 +219,7 @@ if (!empty($cart)) {
         border-radius: 8px;
         font-weight: 600;
         margin-top: 20px;
-        transition: 0.3s ;
+        transition: 0.3s;
     }
 
     .checkout-btn:hover {
@@ -276,7 +275,7 @@ if (!empty($cart)) {
         font-weight: bold;
         font-size: 18px;
         border-radius: 6px;
-        transition: 0.3s ;
+        transition: 0.3s;
     }
 
     .qty-btn:hover {
