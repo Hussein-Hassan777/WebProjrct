@@ -113,7 +113,35 @@ include("index_backend.php");
                 </p>
             </div>
             <div class="edit">
-                <button class="edit_btn" onclick="window.location.href='edit_info.php'">Edit</button>
+                <button class="edit_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+            </div>
+        </div>
+    </div>
+    <!-- model -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">User Authentication</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="edit_info.php" method="post">
+                    <div class="modal-body d-flex justify-content-between align-items-center">
+                        <div class="modeltext">
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="text" class="form-control" id="password" name="password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="submit" class="infobtn" value="submit">authenticate</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -213,22 +241,18 @@ include("index_backend.php");
                                     <span class="star"><i class="fa-solid fa-star"></i></span>
                                 <?php endfor; ?>
                             </div>
-
                             <h5 class="card-title bgBlue"><?= $rows[$i]['name'] ?></h5>
                             <p class="card-text fw-bold fs-4"><?= $rows[$i]['price'] ?> EGP</p>
                         </div>
-
                         <form action="info.php" method="post">
                             <button class="cardbtn cardbtninfo" name="info" value="<?= $rows[$i]['id_P'] ?>">more
                                 info</button>
                         </form>
-
                         <form action="cartBack.php" method="post">
                             <button class="cardbtn cardbtncart" name="cart" value="<?= $rows[$i]['id_P'] ?>">
                                 add to cart <i class="fa-solid fa-cart-arrow-down"></i>
                             </button>
                         </form>
-
                     </div>
                 <?php endfor; ?>
 
@@ -245,14 +269,13 @@ include("index_backend.php");
             our services, our team is here to help. Just send us a message and we'll get back to you as soon as
             possible.</p>
         <div class="input-group mygroup w-50 m-auto">
-
             <button type="button" id="button-addon1" class="btncontact">Join us</button>
             <input type="text" class="form-control inputcontact" placeholder="Type our Email"
                 aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
     </section>
     <!-- Order -->
-    <section id="order" class="order  border rounded m-5">
+    <section id="order" class="order border rounded m-5">
         <div class="container">
             <div class="d-flex justify-content-center">
                 <h2>Special Order</h2>
@@ -314,7 +337,7 @@ include("index_backend.php");
                                 </div>
                                 <div class="ms-2">
                                     <p><?php echo $rows2[$k]['name'] ?></p>
-                                    <p class="bestsellingprice"><?php echo $rows2[$k]['price'] ?> EGP</p>
+                                    <p class="bestsellingprice"><?= $rows2[$k]['price'] ?> EGP</p>
                                     <form action="info.php" method="post" style="display: inline;">
                                         <button class="bestsellingbtn info" name="info"
                                             value="<?= $rows2[$k]['id_P'] ?>">more info</button>
@@ -391,7 +414,6 @@ include("index_backend.php");
     </section>
     <!-- about -->
     <div id="about" class="about">
-        <p class="about_text">
         <h4>We're Always Here To Help</h4>
         <p>Reach out to us through any of these support channels</p>
         <div class="mb-3">

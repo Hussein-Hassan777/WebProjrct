@@ -5,7 +5,7 @@ if (!isset($_SESSION['cart'])) {
 }
 $cart = $_SESSION['cart'];
 $total = 0;
-$conn = mysqli_connect("localhost:3306", "root", "", "ecommerce_db");
+$conn = mysqli_connect("localhost:3307", "root", "", "ecommerce_db");
 $cart_items = [];
 if (!empty($cart)) {
     foreach ($cart as $product_id => $quantity) {

@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['role'] = $row['role'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['phone'] = $row['phone'];
+        $_SESSION['password'] = $row['password'];
 
         if ($row['role'] === 'admin') {
             header("Location:dashbord_html.php");
