@@ -21,7 +21,7 @@ $count_res = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users");
 $count_row2 = mysqli_fetch_assoc($count_res);
 $total_users = $count_row2['total'];
 
-// Orders + Total Order (with quantity)
+// Orders + Total Order
 $orders = [];
 $sql = "
 SELECT 
